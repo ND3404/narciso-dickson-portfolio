@@ -15,13 +15,15 @@ export const profile = {
   projectRepositoryUrls: {
     constructionProjectControlsAnalytics:
       "https://github.com/ND3404/construction-project-controls-analytics",
-    changeOrderRfiAnalytics: "TODO_PROJECT_2_REPOSITORY_URL",
+    changeOrderRfiAnalytics:
+      "https://github.com/ND3404/construction-change-order-rfi-analytics",
     predictiveProjectOverrunModel: "TODO_PROJECT_3_REPOSITORY_URL",
   },
   reportUrls: {
     constructionProjectControlsAnalytics:
       "/downloads/construction-project-controls-analytics-case-study.pdf",
-    changeOrderRfiAnalytics: "TODO_PROJECT_2_REPORT_URL",
+    changeOrderRfiAnalytics:
+      "https://github.com/ND3404/construction-change-order-rfi-analytics/blob/main/reports/Construction_Change_Order_and_RFI_Analytics_Case_Study.pdf",
     predictiveProjectOverrunModel: "TODO_PROJECT_3_REPORT_URL",
   },
 };
@@ -66,13 +68,13 @@ export const projects = [
   },
   {
     slug: "change-order-rfi-analytics",
-    status: "In Development" as ProjectStatus,
+    status: "Complete and Public" as ProjectStatus,
     title: "Construction Change Order and RFI Analytics",
     subtitle:
       "Root-Cause, Cycle-Time, and Impact Analysis for Construction Decision Workflows",
     problem:
-      "Change orders and RFIs move through many reviews, handoffs, and approvals. The project is designed to identify where cycle time, aging, backlog, and handoff patterns create cost and schedule exposure.",
-    tools: ["Python", "SQL", "SQLite", "Excel", "Power BI planned", "Tableau planned"],
+      "Change orders and RFIs move through many reviews, handoffs, and approvals. This case study identifies where cycle time, aging, backlog, and handoff patterns create cost and schedule exposure.",
+    tools: ["Python", "SQL", "SQLite", "Excel", "Power BI spec", "Tableau spec"],
     methodology:
       "Ask, Prepare, Process, Analyze, Share, and Act, aligned to CRISP-DM, DMAIC, Microsoft's data-science lifecycle, and PMI process groups.",
     deliverables: [
@@ -80,8 +82,8 @@ export const projects = [
       "Clean CSV files and SQLite analytical database",
       "RFI and change-order relationship model",
       "Workflow event duration outputs",
-      "Power BI and Tableau dashboards planned",
-      "Final report and management recommendations planned",
+      "Power BI and Tableau dashboard specifications",
+      "Final report and management recommendations",
     ],
     repoUrl: profile.projectRepositoryUrls.changeOrderRfiAnalytics,
     reportUrl: profile.reportUrls.changeOrderRfiAnalytics,
@@ -91,13 +93,13 @@ export const projects = [
     disclosure:
       "Current materials use synthetic public portfolio data for education, portfolio demonstration, and analytical-methodology development.",
     facts: [
-      "Ask, Prepare, and Process complete",
-      "Analyze phase next",
+      "Ask through Act complete",
       "90 clean projects",
       "3,318 clean RFI records",
       "1,119 clean change orders",
-      "11,286 clean workflow events",
-      "22 of 22 quality checks passed",
+      "$204.57M approved change value",
+      "29 Red, 48 Yellow, 13 Green projects",
+      "Pearson r = 0.817 tested relationship",
     ],
   },
   {
@@ -149,8 +151,6 @@ export const unresolvedPlaceholders = [
   "TODO_APPROVED_PUBLIC_RESUME_FILE",
   "TODO_POWER_BI_PORTFOLIO_URL",
   "TODO_TABLEAU_PUBLIC_URL",
-  "TODO_PROJECT_2_REPOSITORY_URL",
-  "TODO_PROJECT_2_REPORT_URL",
   "TODO_PROJECT_3_REPOSITORY_URL",
   "TODO_PROJECT_3_REPORT_URL",
 ];

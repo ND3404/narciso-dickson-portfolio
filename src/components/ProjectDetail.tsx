@@ -9,7 +9,7 @@ export function ProjectDetail({ slug }: { slug: string }) {
   if (!project) return null;
 
   const isComplete = project.slug === "construction-project-controls-analytics";
-  const isInDevelopment = project.slug === "change-order-rfi-analytics";
+  const isProject2 = project.slug === "change-order-rfi-analytics";
 
   return (
     <>
@@ -25,8 +25,8 @@ export function ProjectDetail({ slug }: { slug: string }) {
             </div>
 
             {isComplete && <CompleteCaseStudy />}
-            {isInDevelopment && <InDevelopmentCaseStudy />}
-            {!isComplete && !isInDevelopment && <PlannedCaseStudy />}
+            {isProject2 && <Project2CompleteCaseStudy />}
+            {!isComplete && !isProject2 && <PlannedCaseStudy />}
 
             <section className="detail-section">
               <h2>Synthetic-data disclosure</h2>
@@ -136,24 +136,25 @@ function CompleteCaseStudy() {
   );
 }
 
-function InDevelopmentCaseStudy() {
+function Project2CompleteCaseStudy() {
   const phases = [
     ["Ask", "Complete"],
     ["Prepare", "Complete"],
     ["Process", "Complete"],
-    ["Analyze", "Next"],
-    ["Share", "Not started"],
-    ["Act", "Not started"],
+    ["Analyze", "Complete"],
+    ["Share", "Complete"],
+    ["Act", "Complete"],
   ];
 
   return (
     <>
       <section className="detail-section">
-        <h2>Current stage</h2>
+        <h2>Executive overview</h2>
         <p>
-          The local repository verifies the Process phase as passed. Clean CSV files,
-          a SQLite analytical database, SQL views, workflow duration outputs, audit
-          logs, and validation reports are ready for Analyze.
+          This complete public case study analyzes RFI response performance,
+          change-order approval cycles, workflow-event histories, commercial
+          exposure, and project-level management priorities across 90 synthetic
+          construction projects.
         </p>
         <div className="phase-grid">
           {phases.map(([phase, status]) => (
@@ -165,10 +166,11 @@ function InDevelopmentCaseStudy() {
         </div>
       </section>
       {[
-        ["Proposed business question", "Which change-order causes and RFI workflow conditions create the greatest cost and schedule exposure, and where should management intervene to improve response and approval performance?"],
-        ["Verified process results", "The processed dataset contains 90 clean projects, 3,318 clean RFI records, 1,119 clean change orders, 11,286 clean workflow events, 677 clean RFI-change links, 28 duplicate removals, 18 quarantined rows, 226 cleaning-log actions, and 22 of 22 quality checks passed."],
-        ["Current deliverables", "Project charter, methodology alignment, generated raw files, clean files, SQLite database, SQL schema and views, data dictionary, cleaning log, quarantine records, row reconciliation, and process validation reports."],
-        ["Next analysis scope", "Analyze RFI response time, aging, backlog, workflow handoffs, change-order root causes, RFI-to-change relationships, and cost and schedule impact patterns."],
+        ["Business question", "Which change-order causes and RFI workflow conditions create the greatest cost and schedule exposure, and where should management intervene to improve response and approval performance?"],
+        ["Data model", "The processed dataset contains 90 clean projects, 3,318 clean RFI records, 1,119 clean change orders, 11,286 clean workflow events, and 677 clean RFI-change links."],
+        ["Analytical results", "The synthetic portfolio shows a 12.21-day average RFI response, 45.68% RFI on-time rate, $204.57M approved change value, $88.10M pending exposure, and 29 Red, 48 Yellow, and 13 Green workflow-health statuses."],
+        ["Tested relationship", "The strongest tested relationship is between project-average RFI response time and project-average change approval cycle, with Pearson r = 0.817. This is an association, not proof of causation."],
+        ["Deliverables", "The public repository includes the final PDF report, Share dashboard workbook, Act workbook, analytical CSV outputs, SQL, Python automation, dashboard images, documentation, synthetic-data license, and citation file."],
       ].map(([heading, body]) => (
         <section className="detail-section" key={heading}>
           <h2>{heading}</h2>

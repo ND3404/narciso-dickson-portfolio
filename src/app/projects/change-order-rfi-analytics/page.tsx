@@ -7,7 +7,7 @@ const project = projects[1];
 export const metadata = pageMetadata({
   title: project.title,
   description:
-    "In-development case-study page for construction change-order and RFI analytics, with current phase status verified from local project files.",
+    "Complete public case-study page for construction change-order and RFI analytics, with RFI, change-order, workflow, and exposure analysis.",
   path: project.detailHref,
 });
 
@@ -22,7 +22,7 @@ export default function ChangeOrderRfiAnalyticsPage() {
           name: project.title,
           headline: project.subtitle,
           url: absoluteUrl(project.detailHref),
-          learningResourceType: "In-development case study",
+          learningResourceType: "Case study",
         }}
       />
     </>
