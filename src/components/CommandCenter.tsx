@@ -1,6 +1,10 @@
+import { profile } from "@/config/profile";
+
 export function CommandCenter() {
+  // Years come from the canonical profile so this panel can never drift out of
+  // step with the rest of the site.
   const kpis = [
-    ["10+", "Years Experience"],
+    [profile.experienceYears, "Years Experience"],
     ["PMP", "Certified"],
     ["MS", "Project Management"],
     ["AI", "Leadership"],
