@@ -27,7 +27,7 @@ const NARRATIVE: Record<string, { sections: Section[]; figures: Figure[] }> = {
       ["Early-warning relationships", "Contingency burn ratio has the strongest tested association with forecast overrun (Pearson r = 0.901). RFI response time shows a weaker but real association with schedule delay (r = 0.517), while RFI density does not. These are associations, not causal claims."],
       ["Management recommendations", "Track contingency burn from month one, review CPI thresholds before monthly reporting closes, separate cost and schedule change-order drivers, and manage RFIs as a systemic workflow constraint."],
       ["Automation and governance", "The repository includes a PowerShell pipeline runner and a Python management-alert generator that produces alert outputs from the validated analysis data."],
-      ["Limitations", "The data is synthetic, correlations are not causal claims, small subgroups are not generalised, and retained data-quality gaps are disclosed in the project documentation."],
+      ["Limitations", "The data is synthetic, correlations are not causal claims, small subgroups are not generalized, and retained data-quality gaps are disclosed in the project documentation."],
     ].map(([heading, body]) => ({ heading, body })),
     figures: [
       { src: "/case-study/p1-executive-dashboard.png", caption: "Executive dashboard: portfolio health, forecast overrun by project type, cost and schedule efficiency, and the top-10 review list.", alt: "Executive dashboard showing portfolio health, forecast overrun by project type, cost and schedule efficiency, and the top-10 review list" },
@@ -37,13 +37,13 @@ const NARRATIVE: Record<string, { sections: Section[]; figures: Figure[] }> = {
 
   "construction-change-order-rfi-analytics": {
     sections: [
-      ["Executive overview", "A complete public case study analysing RFI response performance, change-order approval cycles, workflow-event histories, commercial exposure, and project-level management priorities across 90 synthetic construction projects."],
+      ["Executive overview", "A complete public case study analyzing RFI response performance, change-order approval cycles, workflow-event histories, commercial exposure, and project-level management priorities across 90 synthetic construction projects."],
       ["Business problem", "Change orders and RFIs pass through many reviews, handoffs, and approvals. Each pause is invisible in a monthly cost report, yet the accumulated delay shows up as commercial exposure and schedule pressure."],
       ["Primary question", "Which change-order causes and RFI workflow conditions create the greatest cost and schedule exposure, and where should management intervene to improve response and approval performance?"],
       ["Stakeholders", "Project managers, project-controls teams, design managers, commercial and contracts staff, owners, and executives responsible for portfolio decisions."],
       ["Analytics lifecycle", "Ask, Prepare, Process, Analyze, Share, and Act, aligned to CRISP-DM, DMAIC, Microsoft's data-science lifecycle, and PMI process groups."],
       ["Relational data model", "The processed dataset contains 90 clean projects, 3,318 clean RFI records, 1,119 clean change orders, 11,286 clean workflow events, and 677 clean RFI-to-change links."],
-      ["Data quality and cleaning", "Duplicates removed, categories standardised, invalid relationships quarantined rather than guessed, one-to-one relationships enforced, and every treatment logged before analysis."],
+      ["Data quality and cleaning", "Duplicates removed, categories standardized, invalid relationships quarantined rather than guessed, one-to-one relationships enforced, and every treatment logged before analysis."],
       ["RFI performance", "Average RFI response is 12.21 days against a 45.7% on-time rate, with 295 overdue open RFIs. Response speed varies by discipline, and every discipline sits below a healthy on-time threshold."],
       ["Change-order exposure", "Approved change value reaches $204.57M with $88.10M still pending. Owner-directed changes, design errors or omissions, and unforeseen conditions account for the largest share of approved value."],
       ["Workflow bottlenecks", "Stage-duration analysis locates where time accumulates by item type and accountable role, and separates genuine review time from rework loops returned for revision or clarification."],
@@ -72,12 +72,12 @@ const NARRATIVE: Record<string, { sections: Section[]; figures: Figure[] }> = {
       ["Regression model comparison", "Ridge and Random Forest regressors forecast final overrun percentage and final delay days. Cost regression reaches R² 0.520 on the test period; schedule regression is materially weaker at R² 0.333."],
       ["Calibration and confusion matrices", "Predicted probabilities are compared against observed rates by decile, and confusion matrices at the selected thresholds show the real trade-off between missed overruns and false alarms."],
       ["Feature importance", "Permutation importance identifies CPI as the leading cost-overrun driver and SPI as the leading schedule-delay driver. Importance measures predictive contribution, not causation: changing a feature will not by itself change the outcome."],
-      ["Project risk scoring", "Each test project receives a cost probability, a schedule probability, a combined probability, and a Red, Yellow, or Green band, producing 188 Red, 138 Yellow, and 110 Green projects for review prioritisation."],
+      ["Project risk scoring", "Each test project receives a cost probability, a schedule probability, a combined probability, and a Red, Yellow, or Green band, producing 188 Red, 138 Yellow, and 110 Green projects for review prioritization."],
       ["Temporal degradation finding", "Schedule-delay performance declines from validation to the future test period. This was documented as a model-monitoring concern rather than hidden, and it drives the retraining and drift thresholds defined in the Act phase."],
       ["Controlled-pilot roadmap", "The Act phase defines a staged pilot with defined scope, success criteria, and a decision point, rather than an open-ended rollout."],
       ["Human-review workflow", "Predictions enter a review queue. A qualified professional confirms, overrides, or rejects each one, and the override is logged as training signal for the next cycle."],
       ["Drift, monitoring, override, and retraining controls", "Monitoring thresholds, override logging, retraining triggers, incident handling, and a model card are defined before any pilot begins."],
-      ["Limitations and responsible AI", "The data is synthetic and the results are not industry benchmarks. The model establishes association rather than causation, production use on real projects is not authorised by this case study, and predictions support human review rather than replacing qualified project judgment."],
+      ["Limitations and responsible AI", "The data is synthetic and the results are not industry benchmarks. The model establishes association rather than causation, production use on real projects is not authorized by this case study, and predictions support human review rather than replacing qualified project judgment."],
     ].map(([heading, body]) => ({ heading, body })),
     figures: [
       { src: "/case-study/p3-executive-dashboard.png", caption: "Executive model view: predicted risk bands, champion performance on validation versus the 2025 test period, and the highest predicted-risk projects.", alt: "Executive model dashboard showing predicted risk bands, champion model performance, and the highest predicted-risk projects" },
@@ -158,11 +158,11 @@ export function ProjectDetail({ slug }: { slug: string }) {
 
             {isPredictive && (
               <section className="detail-section callout-warning">
-                <h2>Authorised use</h2>
+                <h2>Authorized use</h2>
                 <p>
                   Production use on real construction projects is <strong>not
-                  authorised</strong> by this case study. The model is human decision
-                  support: predictions prioritise review, and a qualified professional
+                  authorized</strong> by this case study. The model is human decision
+                  support: predictions prioritize review, and a qualified professional
                   remains accountable for every decision.
                 </p>
               </section>
