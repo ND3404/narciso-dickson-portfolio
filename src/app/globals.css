@@ -6,20 +6,27 @@
    --cyan and --blue keep their names for compatibility but now carry the
    brand accent (terracotta) and its steel secondary. */
 :root {
+  /* --- supplied In Project brand palette: the governing four --- */
+  --brand-paper: #edeae2;
+  --brand-ink: #02000b;
+  --brand-rust: #a04732;
+  --brand-white: #ffffff;
+
+  /* --- aliases and neutrals, same values as the four above --- */
   --navy: #02000b;
   --navy-2: #0c0a16;
   --navy-3: #15121f;
-  --cyan: #a04732;        /* brand accent - terracotta */
-  --cyan-2: #bd5a43;      /* terracotta light */
-  --blue: #53616d;        /* steel secondary */
+  --cyan: #a04732;             /* legacy alias, now the rust accent */
+  --cyan-2: #bd5a43;           /* rust, lightened for gradients */
+  --blue: #53616d;             /* steel: neutral secondary for data series */
   --terracotta: #a04732;
   --beige: #edeae2;
   --paper: #ffffff;
-  --bg: #f6f3ec;
-  --soft: #edeae2;
-  --line: #e2dccf;
-  --ink: #262320;
-  --muted: #5b564e;
+  --bg: #edeae2;
+  --soft: #e4e0d6;
+  --line: #d9d3c7;
+  --ink: #241f1a;
+  --muted: #5b544b;
   --green: #3f9d6b;
   --amber: #c8881f;
   --red: #c0492f;
@@ -344,6 +351,57 @@ p { color: var(--muted); line-height: 1.68; }
 .fact-list, .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
 .disclosure { padding: 12px; border-left: 3px solid var(--cyan); background: #faf7f2; color: var(--muted); font-size: 0.92rem; }
 
+/* --- home page --- */
+.hero-sublink { margin-top: 18px; }
+.hero-sublink a { color: var(--brand-rust); font-weight: 700; border-bottom: 1px solid transparent; }
+.hero-sublink a:hover, .hero-sublink a:focus-visible { border-bottom-color: var(--brand-rust); }
+.card-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.value-card .eyebrow { margin-bottom: 8px; }
+.value-card .btn { margin-top: 16px; align-self: flex-start; }
+.value-card { display: flex; flex-direction: column; }
+.progression { display: grid; gap: 16px; margin-bottom: 34px; }
+.progression-step { display: flex; gap: 20px; align-items: flex-start; padding: 20px 22px; border: 1px solid var(--line); border-left: 4px solid var(--brand-rust); border-radius: var(--radius); background: var(--paper); }
+.progression-index { font-family: var(--font-display), Georgia, serif; font-size: 1.9rem; font-weight: 700; color: var(--brand-rust); line-height: 1; }
+.progression-step h3 { margin: 4px 0 8px; font-size: 1.16rem; }
+.progression-step p { margin: 0; color: var(--muted); }
+.ecosystem-logo { width: min(100%, 260px); height: auto; margin-bottom: 18px; }
+
+.mini-label-plain { border: none; background: none; padding: 0; color: var(--brand-rust); }
+.scale-note { color: var(--muted); font-size: 0.9rem; font-weight: 700; }
+.stack-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 900px) { .stack-grid-2 { grid-template-columns: 1fr; } }
+
+/* --- case-study detail --- */
+.muted-note { color: var(--muted); font-size: 0.95rem; }
+.result-table { display: grid; gap: 0; margin-top: 14px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.result-row { display: flex; justify-content: space-between; align-items: baseline; gap: 18px; padding: 12px 16px; background: var(--paper); }
+.result-row:nth-child(even) { background: var(--brand-paper); }
+.result-row span { color: var(--muted); font-size: 0.94rem; }
+.result-row strong { color: var(--navy); font-family: var(--font-display), Georgia, serif; font-size: 1.02rem; text-align: right; }
+.figure-caption { margin-top: 10px; color: var(--muted); font-size: 0.9rem; font-style: italic; }
+.callout-warning { padding: 20px 22px; border-left: 4px solid var(--brand-rust); border-radius: var(--radius); background: #f7f0ec; }
+.callout-warning h2 { margin-top: 0; }
+.sidebar-note { margin: 0; color: var(--muted); font-size: 0.94rem; }
+.tick-list { margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.92rem; }
+.tick-list li { margin-bottom: 6px; }
+
+/* --- resume / recruiter --- */
+.role-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.role-grid span { padding: 11px 14px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); font-size: 0.94rem; }
+.timeline { display: grid; gap: 20px; }
+.timeline-item { position: relative; padding: 24px; border: 1px solid var(--line); border-left: 4px solid var(--brand-rust); border-radius: var(--radius); background: var(--paper); }
+.timeline-item header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+.timeline-period { color: var(--brand-rust); font-weight: 800; font-size: 0.86rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.timeline-item h3 { margin: 0; font-size: 1.16rem; }
+.timeline-org { color: var(--muted); font-size: 0.95rem; }
+.timeline-item ul { margin: 12px 0 0; padding-left: 18px; color: var(--ink); }
+.timeline-item li { margin-bottom: 6px; }
+.cluster-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.credential-list { display: grid; gap: 12px; }
+.credential-list div { padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
+.credential-list strong { display: block; color: var(--navy); }
+.credential-list span { color: var(--muted); font-size: 0.9rem; }
+
 /* --- recruiter-facing additions --- */
 .metric-band { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
 .metric-band > div {
@@ -369,6 +427,19 @@ p { color: var(--muted); line-height: 1.68; }
 @media (max-width: 900px) {
   .metric-band { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stack-grid { grid-template-columns: 1fr; }
+  .cluster-grid { grid-template-columns: 1fr; }
+  .role-grid { grid-template-columns: 1fr; }
+  .result-row { flex-direction: column; gap: 2px; }
+  .result-row strong { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .ecosystem-grid, .detail-layout, .resume-grid, .contact-grid {

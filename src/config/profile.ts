@@ -1,17 +1,46 @@
+/**
+ * Canonical professional profile.
+ *
+ * Consolidated from three résumé sources into ONE public profile. Rules applied:
+ *  - 15+ years used consistently (sources said both 10+ and 15+)
+ *  - PUBLINTER shown as 2011–2021 (sources disagreed: Dec 2021 vs May 2022;
+ *    the later date also overlapped the In Project LLC start, so the earlier,
+ *    non-contradictory date is used)
+ *  - Each metric appears once, in its most persuasive context
+ *  - No credential IDs, phone number, street address or ZIP anywhere public
+ *  - Location limited to Lehi, Utah, United States
+ *  - Earlier 2003–2010 roles framed as commercial, never as construction
+ *
+ * Every external URL lives here. Anything unknown stays a TODO_ value and the
+ * UI renders a disabled state rather than a dead "#" link.
+ */
+
 export const profile = {
   fullName: "Narciso M. Dickson",
+  credentials: "MS, PMP®",
   title:
-    "PMP-certified project-management professional, construction project-controls analyst, and AI leadership practitioner",
+    "Construction Project/Program Management · Project Controls · Data Analytics · Responsible AI Leadership",
+  recruiterHeadline:
+    "PMP® Construction Project/Program Leader · Project Controls · Data Analytics · Responsible AI",
   shortDescriptor: "Project leadership + controls analytics + responsible AI",
-  linkedinUrl: "TODO_LINKEDIN_URL",
+  location: "Lehi, Utah, United States",
+  experienceYears: "15+",
+  languages: ["English", "Spanish"],
+
+  linkedinUrl: "https://www.linkedin.com/in/narcisodickson",
   githubProfileUrl: "https://github.com/ND3404",
   publicEmail: "info@inprojectmanagement.com",
   inProjectUrl: "https://www.inprojectmanagement.com/",
   inProjectAiUrl: "https://agents.inprojectmanagement.com/",
   portfolioCanonicalUrl: "https://narciso-dickson-portfolio.vercel.app",
-  resumeFile: "TODO_APPROVED_PUBLIC_RESUME_FILE",
+
+  /** One canonical résumé download, derived from the PM/Data/Web source. */
+  resumeUrl: "/resume/Narciso_M_Dickson_Resume.pdf",
+  resumeFormat: "PDF",
+
   powerBiUrl: "TODO_POWER_BI_PORTFOLIO_URL",
   tableauPublicUrl: "TODO_TABLEAU_PUBLIC_URL",
+
   projectRepositoryUrls: {
     constructionProjectControlsAnalytics:
       "https://github.com/ND3404/construction-project-controls-analytics",
@@ -28,11 +57,27 @@ export const profile = {
     predictiveProjectOverrunModel:
       "https://github.com/ND3404/predictive-construction-project-overrun-model/blob/main/reports/Predictive_Construction_Project_Overrun_Model_Case_Study.pdf",
   },
-};
+} as const;
 
-export type ProjectStatus = "Complete and Public" | "In Development" | "Planned";
+/** A value that has not been supplied yet, so the UI can degrade gracefully. */
+export const isPending = (value: string) => value.startsWith("TODO_");
 
-/** Headline results across the published case studies, for the landing page. */
+// ---------------------------------------------------------------- positioning
+
+export const positioning =
+  "Narciso M. Dickson, MS, PMP®, is a construction project and program management professional with 15+ years leading construction, design, and consulting work. He has managed multimillion-dollar portfolios, concurrent projects, multidisciplinary teams, procurement, contracts, budgets, schedules, risk, quality, and stakeholder governance. He now combines that leadership foundation with Excel, Power BI, SQL, construction analytics, predictive modeling, and responsible AI governance as the founder of In Project LLC.";
+
+/** Verified credibility markers. Not client results — do not present as outcomes. */
+export const trustMarkers = [
+  "PMP® Certified",
+  "Master's in Project Management",
+  "15+ Years of Project/Program Management",
+  "Construction Project Controls",
+  "Data Analytics and BI",
+  "Responsible AI Leadership",
+] as const;
+
+/** Headline numbers across the three published case studies. */
 export const portfolioMetrics = [
   ["2,527", "Synthetic projects analyzed"],
   ["$5.83B", "Portfolio value modeled"],
@@ -40,6 +85,179 @@ export const portfolioMetrics = [
   ["3", "End-to-end case studies"],
 ] as const;
 
+export const audiencePaths = [
+  {
+    eyebrow: "Hiring and recruitment",
+    title: "Recruiters and hiring managers",
+    body: "Project leadership, project controls, analytics, and AI-enabled management roles, backed by three complete public case studies.",
+    cta: "Review Experience",
+    href: "/resume",
+  },
+  {
+    eyebrow: "Construction and institutional",
+    title: "Construction companies and owners",
+    body: "Controls, workflow visibility, executive dashboards, risk analysis, and decision support for portfolios under pressure.",
+    cta: "Explore Capabilities",
+    href: "/expertise",
+  },
+  {
+    eyebrow: "Consulting and partnerships",
+    title: "Consulting and partnerships",
+    body: "In Project LLC construction analytics, dashboards, reporting workflows, and In Project AI collaboration.",
+    cta: "Discuss an Opportunity",
+    href: "/contact",
+  },
+] as const;
+
+// ---------------------------------------------------------------- experience
+
+export const timeline = [
+  {
+    period: "2022 – Present",
+    role: "Senior Construction Project Manager and Founder",
+    org: "In Project LLC — Lehi, Utah",
+    kind: "Construction leadership and analytics",
+    summary:
+      "Directs complete project lifecycles from concept to closeout while building the analytics and AI capability behind In Project.",
+    points: [
+      "Reduced project preparation time by 30% through streamlined planning",
+      "Manages 10+ concurrent projects annually with schedule, budget, and governance frameworks",
+      "Reduced project and vendor expenses by 25% through RFQ/RFP processes and contract negotiation",
+      "Processes change orders and invoices, and maintains reporting protocols and project controls",
+      "Builds Excel and Power BI dashboards for schedule, cost, and KPI visibility",
+      "Delivers web design and local SEO as an additional In Project capability",
+    ],
+  },
+  {
+    period: "2011 – 2021",
+    role: "Project/Program Manager",
+    org: "PUBLINTER, Arq. y Sup. SRL — Santiago, Dominican Republic",
+    kind: "Construction and design portfolios",
+    summary:
+      "Led multidisciplinary construction and design delivery across a large annual project load.",
+    points: [
+      "Managed construction and design portfolios exceeding $30 million",
+      "Coordinated 15+ multidisciplinary teams across 20+ annual projects",
+      "Improved preparation efficiency by 25% through standardized frameworks and scheduling",
+      "Increased stakeholder satisfaction by 30% through clear reporting and progress tracking",
+      "Applied Agile, Waterfall, and Hybrid delivery to match project complexity",
+      "Implemented risk management and quality assurance frameworks; mentored junior staff",
+    ],
+  },
+  {
+    period: "2003 – 2010",
+    role: "Earlier Commercial and Client Leadership",
+    org: "McGraw-Hill · Grupo SM · Grupo Santillana — Santiago, Dominican Republic",
+    kind: "Commercial and client advisory",
+    summary:
+      "Consultative client leadership that established the executive communication, negotiation, and stakeholder skills later applied to construction delivery. These were commercial roles, not construction roles.",
+    points: [
+      "Increased sales by up to 35% and developed relationships across 150+ educational institutions",
+      "Led events, training, and product launches, positioning the businesses as market leaders",
+      "Negotiated contracts and service agreements with customers, agents, and brokers",
+    ],
+  },
+] as const;
+
+export const education = [
+  {
+    credential: "Master of Science in Project Management",
+    org: "PUCMM, Santiago, Dominican Republic / EOI, Madrid, Spain",
+    period: "2015 – 2017",
+  },
+  {
+    credential: "Bachelor of Science in Business Administration",
+    org: "Universidad Abierta para Adultos (UAPA), Santiago, Dominican Republic",
+    period: "2007 – 2013",
+  },
+] as const;
+
+/** Credential IDs are deliberately omitted from the public site. */
+export const certifications = [
+  { name: "Project Management Professional (PMP)®", org: "Project Management Institute" },
+  { name: "Google Project Management Specialization", org: "Google" },
+  { name: "Construction Management Specialization", org: "Columbia University" },
+  { name: "Agile Hybrid Project", org: "Project Management Institute" },
+] as const;
+
+export const targetRoles = [
+  "Senior Construction Project Manager",
+  "Project/Program Manager",
+  "Project Controls Manager or Lead",
+  "Construction Analytics or BI Project Lead",
+  "PMO, Governance, or Transformation Lead",
+  "Data Analytics Project Manager",
+  "AI-enabled Project Management or Responsible AI Program Lead",
+  "Construction consulting and owner-representative engagements",
+] as const;
+
+export const competencies = [
+  {
+    title: "Project and program leadership",
+    items: [
+      "Full project lifecycle",
+      "Scope and schedule management",
+      "Predictive, Agile, Waterfall, Hybrid",
+      "Multidisciplinary team leadership",
+      "Executive communication",
+    ],
+  },
+  {
+    title: "Construction project controls and scheduling",
+    items: [
+      "Cost and budget control",
+      "Earned Value Management",
+      "CPI, SPI, EAC, variance analysis",
+      "Primavera P6",
+      "Microsoft Project",
+    ],
+  },
+  {
+    title: "Commercial, contracts, procurement, and change",
+    items: [
+      "RFQ and RFP processes",
+      "Contract negotiation",
+      "Vendor management",
+      "Change orders and invoices",
+      "Project closeout",
+    ],
+  },
+  {
+    title: "Risk, quality, governance, and stakeholders",
+    items: [
+      "Risk management",
+      "Quality assurance",
+      "Governance and reporting",
+      "Stakeholder engagement",
+      "Lessons learned and mentoring",
+    ],
+  },
+  {
+    title: "Data analytics, dashboards, and predictive modeling",
+    items: [
+      "Excel",
+      "SQL and SQLite",
+      "Python",
+      "Power BI",
+      "Tableau",
+      "Relational modeling and validation",
+      "Descriptive, diagnostic, predictive analysis",
+    ],
+  },
+  {
+    title: "Responsible AI, digital solutions, and technical reading",
+    items: [
+      "AI use-case definition",
+      "Model cards and human review",
+      "Drift monitoring and overrides",
+      "Architectural, structural, MEP, civil, and geotechnical drawings",
+      "Web design and local SEO",
+      "Bilingual English and Spanish",
+    ],
+  },
+] as const;
+
+/** Condensed stack summary for the landing page. */
 export const techStack = [
   {
     title: "Analytics and engineering",
@@ -49,26 +267,89 @@ export const techStack = [
   {
     title: "Business intelligence",
     items: ["Power BI", "Tableau", "Executive dashboards", "KPI design",
-            "matplotlib", "Report automation", "Data storytelling"],
+            "Report automation", "Data storytelling"],
   },
   {
     title: "Project controls and governance",
-    items: ["Earned Value Management", "CPI / SPI", "Change management", "RFI workflow",
-            "Risk registers", "Model governance", "Responsible AI", "PMP"],
+    items: ["Earned Value Management", "CPI / SPI", "Primavera P6", "Microsoft Project",
+            "Change management", "RFI workflow", "Model governance", "PMP®"],
   },
 ] as const;
+
+/** Four premium capability areas for the Expertise page. */
+export const expertiseAreas = [
+  {
+    title: "Project and Program Leadership",
+    body: "Initiation through closeout, with the delivery method chosen to fit the work rather than the fashion.",
+    items: [
+      "Project initiation through closeout",
+      "Agile, Waterfall, and Hybrid delivery",
+      "Multidisciplinary team leadership",
+      "Scope, procurement, risk, and change management",
+      "Stakeholder coordination",
+      "Executive communication and governance",
+    ],
+  },
+  {
+    title: "Construction and Project Controls",
+    body: "The measurement layer that tells leadership what is really happening to cost and schedule.",
+    items: [
+      "Cost and schedule control",
+      "Earned Value Management",
+      "CPI, SPI, EAC, and variance analysis",
+      "RFIs, submittals, and change orders",
+      "Contingency and forecast monitoring",
+      "Workflow and backlog analysis",
+      "Executive and owner reporting",
+    ],
+  },
+  {
+    title: "Data Analytics and Business Intelligence",
+    body: "Turning project-control records into validated, decision-ready analysis and dashboards.",
+    items: [
+      "Excel, SQL, and SQLite",
+      "Python",
+      "Power BI and Tableau",
+      "Data preparation and validation",
+      "Relational modeling",
+      "Descriptive, diagnostic, and predictive analysis",
+      "Dashboard development and analytical storytelling",
+    ],
+  },
+  {
+    title: "AI Leadership and Model Governance",
+    body: "Predictive capability applied with the controls that make it safe to rely on.",
+    items: [
+      "AI business use-case definition",
+      "AI-enabled project workflows",
+      "Prompt and agent workflow design",
+      "Predictive-risk concepts",
+      "Data quality and leakage controls",
+      "Model cards, human review, and overrides",
+      "Drift monitoring and responsible AI governance",
+      "In Project AI product leadership",
+    ],
+  },
+] as const;
+
+// ---------------------------------------------------------------- projects
+
+export type ProjectStatus = "Complete and Public" | "In Development" | "Planned";
 
 export const projects = [
   {
     slug: "construction-project-controls-analytics",
+    order: 1,
+    stage: "Descriptive and early-warning analytics",
     status: "Complete and Public" as ProjectStatus,
     title: "Construction Project Controls Analytics",
     subtitle: "Early Warning Analysis for Cost and Schedule Performance",
     problem:
       "Project teams often detect cost and schedule stress after intervention options have narrowed. This case study tests which controls metrics move early enough to support management action.",
-    tools: ["Excel", "SQL", "Python", "SQLite", "Power BI-ready spec", "Tableau-ready spec"],
+    scale: "75 synthetic projects · $5.83B portfolio · 2022–2025",
+    tools: ["Excel", "SQL", "SQLite", "Python", "Power BI spec", "Tableau spec"],
     methodology:
-      "Ask, Prepare, Process, Analyze, Share, and Act, supported by terminology and practices from CRISP-DM, DMAIC, Microsoft's data-science lifecycle, and PMI project-governance process groups.",
+      "Ask, Prepare, Process, Analyze, Share, and Act, supported by CRISP-DM, DMAIC, Microsoft's data-science lifecycle, and PMI project-governance process groups.",
     deliverables: [
       "Synthetic relational construction portfolio dataset",
       "SQL schema, quality checks, views, and analysis queries",
@@ -79,32 +360,53 @@ export const projects = [
     ],
     repoUrl: profile.projectRepositoryUrls.constructionProjectControlsAnalytics,
     reportUrl: profile.reportUrls.constructionProjectControlsAnalytics,
-    powerBiUrl: profile.powerBiUrl,
-    tableauUrl: profile.tableauPublicUrl,
     detailHref: "/projects/construction-project-controls-analytics",
     thumb: "/case-study/p1-executive-dashboard.png",
-    thumbAlt: "Executive dashboard showing portfolio health, forecast overrun by project type and the top-10 review list",
+    thumbAlt:
+      "Executive dashboard showing portfolio health, forecast overrun by project type, cost and schedule efficiency, and the top-10 review list",
     disclosure:
       "All project, client, cost, schedule, RFI, and change-order data in this case study is synthetic and does not represent actual client performance or confidential records.",
     facts: [
       "75 synthetic projects",
-      "$5.831B portfolio BAC",
-      "$6.587B forecast EAC",
+      "$5.83B portfolio BAC",
       "13.0% forecast overrun",
       "Weighted CPI 0.884",
       "Average delay 33.7 days",
-      "50 Red, 13 Yellow, 12 Green projects",
+      "50 Red, 13 Yellow, 12 Green",
+    ],
+    results: [
+      ["Synthetic projects", "75"],
+      ["Portfolio BAC", "$5,831,436,600"],
+      ["Forecast EAC", "$6,586,989,966"],
+      ["Forecast overrun", "13.0%"],
+      ["Weighted CPI", "0.884"],
+      ["Weighted SPI", "0.987"],
+      ["Average forecast delay", "33.7 days"],
+      ["Project health", "50 Red / 13 Yellow / 12 Green"],
+      ["Contingency burn vs forecast overrun", "Pearson r = 0.901"],
+      ["RFI response vs schedule delay", "Pearson r = 0.517"],
     ],
   },
   {
-    slug: "change-order-rfi-analytics",
+    slug: "construction-change-order-rfi-analytics",
+    order: 2,
+    stage: "Diagnostic workflow analytics",
     status: "Complete and Public" as ProjectStatus,
     title: "Construction Change Order and RFI Analytics",
     subtitle:
       "Root-Cause, Cycle-Time, and Impact Analysis for Construction Decision Workflows",
     problem:
       "Change orders and RFIs move through many reviews, handoffs, and approvals. This case study identifies where cycle time, aging, backlog, and handoff patterns create cost and schedule exposure.",
-    tools: ["Python", "SQL", "SQLite", "Excel", "Power BI spec", "Tableau spec"],
+    scale: "90 synthetic projects · 3,318 RFIs · 1,119 change orders · 2022–2025",
+    tools: [
+      "Excel",
+      "SQL",
+      "SQLite",
+      "Python",
+      "Statistical analysis",
+      "Power BI spec",
+      "Tableau spec",
+    ],
     methodology:
       "Ask, Prepare, Process, Analyze, Share, and Act, aligned to CRISP-DM, DMAIC, Microsoft's data-science lifecycle, and PMI process groups.",
     deliverables: [
@@ -117,33 +419,56 @@ export const projects = [
     ],
     repoUrl: profile.projectRepositoryUrls.changeOrderRfiAnalytics,
     reportUrl: profile.reportUrls.changeOrderRfiAnalytics,
-    powerBiUrl: profile.powerBiUrl,
-    tableauUrl: profile.tableauPublicUrl,
-    detailHref: "/projects/change-order-rfi-analytics",
+    detailHref: "/projects/construction-change-order-rfi-analytics",
     thumb: "/case-study/p2-executive-dashboard.png",
-    thumbAlt: "Executive dashboard showing RFI response performance, commercial exposure by change category and workflow health",
+    thumbAlt:
+      "Executive dashboard showing RFI response performance, commercial exposure by change category, workflow health, and the projects needing attention",
     disclosure:
-      "Current materials use synthetic public portfolio data for education, portfolio demonstration, and analytical-methodology development.",
+      "All projects, organizations, people, budgets, schedules, RFIs, change orders, workflow events, and performance records in this case study are synthetic and must not be represented as actual client, company, or industry-benchmark information.",
     facts: [
-      "Ask through Act complete",
-      "90 clean projects",
-      "3,318 clean RFI records",
-      "1,119 clean change orders",
+      "90 synthetic projects",
+      "3,318 RFI records",
+      "1,119 change orders",
+      "12.21-day average RFI response",
       "$204.57M approved change value",
-      "29 Red, 48 Yellow, 13 Green projects",
+      "29 Red, 48 Yellow, 13 Green",
       "Pearson r = 0.817 tested relationship",
+    ],
+    results: [
+      ["Synthetic construction projects", "90"],
+      ["RFIs analyzed", "3,318"],
+      ["Change orders analyzed", "1,119"],
+      ["Average RFI response", "12.21 days"],
+      ["RFI on-time rate", "45.7%"],
+      ["Approved change value", "$204.57M"],
+      ["Pending change exposure", "$88.10M"],
+      ["Average change approval cycle", "28.91 days"],
+      ["Project workflow health", "29 Red / 48 Yellow / 13 Green"],
+      ["RFI response vs approval cycle", "Pearson r = 0.817"],
     ],
   },
   {
-    slug: "predictive-project-overrun-model",
+    slug: "predictive-construction-project-overrun-model",
+    order: 3,
+    stage: "Predictive early-warning modeling",
     status: "Complete and Public" as ProjectStatus,
     title: "Predictive Construction Project Overrun Model",
-    subtitle: "Early-Warning Classification and Regression for Cost Overruns and Schedule Delays",
+    subtitle:
+      "Early-Warning Classification and Regression for Cost Overruns and Schedule Delays",
     problem:
       "Cost and schedule outcomes are usually confirmed too late to change them. This case study tests which early and mid-project controls and workflow indicators predict material overruns and delays while intervention is still possible.",
-    tools: ["Python", "scikit-learn", "SQL", "SQLite", "Excel", "Power BI spec", "Tableau spec"],
+    scale: "2,362 clean modeling projects · 40 predictors · 2019–2025",
+    tools: [
+      "Python",
+      "pandas and NumPy",
+      "scikit-learn",
+      "SQL and SQLite",
+      "Excel",
+      "Power BI spec",
+      "Tableau spec",
+    ],
     methodology:
-      "Ask, Prepare, Process, Analyze, Share, and Act, aligned to CRISP-DM, DMAIC, Microsoft's data-science lifecycle, and PMI process groups, with a time-based train, validation, and test split.",
+      "Ask, Prepare, Process, Analyze, Share, and Act with a time-based train, validation, and test split, calibration, permutation importance, segment performance, and a model card.",
     deliverables: [
       "Synthetic relational dataset with generation, cleaning, and validation pipeline",
       "Classification and regression models with calibration and feature importance",
@@ -154,37 +479,54 @@ export const projects = [
     ],
     repoUrl: profile.projectRepositoryUrls.predictiveProjectOverrunModel,
     reportUrl: profile.reportUrls.predictiveProjectOverrunModel,
-    powerBiUrl: profile.powerBiUrl,
-    tableauUrl: profile.tableauPublicUrl,
-    detailHref: "/projects/predictive-project-overrun-model",
+    detailHref: "/projects/predictive-construction-project-overrun-model",
     thumb: "/case-study/p3-executive-dashboard.png",
-    thumbAlt: "Executive model dashboard showing predicted risk bands, champion model performance and the highest-risk projects",
+    thumbAlt:
+      "Executive model dashboard showing predicted risk bands, champion model performance, and the highest predicted-risk projects",
     disclosure:
-      "All projects, organizations, budgets, schedules, workflow records, and outcomes in this case study are synthetic. Model results are portfolio demonstrations, not industry benchmarks, and the model is not authorized for production use.",
+      "All projects, organizations, budgets, schedules, workflow records, and outcomes in this case study are synthetic. Model results are portfolio demonstrations, not industry benchmarks.",
     facts: [
-      "Ask through Act complete",
       "2,362 clean modeling projects",
-      "40 predictors, time-based split",
+      "40 predictors",
+      "Time-based 2019–2025 split",
       "Cost ROC-AUC 0.899, PR-AUC 0.774",
       "Schedule ROC-AUC 0.756, PR-AUC 0.524",
-      "188 Red, 138 Yellow, 110 Green test projects",
+      "188 Red, 138 Yellow, 110 Green",
       "Human review required before action",
     ],
+    results: [
+      ["Clean modeling projects", "2,362"],
+      ["Predictors", "40"],
+      ["Training projects, 2019–2023", "1,577"],
+      ["Validation projects, 2024", "349"],
+      ["Test projects, 2025", "436"],
+      ["Cost-overrun test ROC-AUC", "0.899"],
+      ["Cost-overrun test PR-AUC", "0.774"],
+      ["Schedule-delay test ROC-AUC", "0.756"],
+      ["Schedule-delay test PR-AUC", "0.524"],
+      ["Test risk bands", "188 Red / 138 Yellow / 110 Green"],
+    ],
   },
-];
+] as const;
+
+export type Project = (typeof projects)[number];
+
+/** Redirects from the previous slugs so existing external links keep working. */
+export const legacyProjectSlugs: Record<string, string> = {
+  "change-order-rfi-analytics": "construction-change-order-rfi-analytics",
+  "predictive-project-overrun-model": "predictive-construction-project-overrun-model",
+};
 
 export const siteNav = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
   { label: "Expertise", href: "/expertise" },
-  { label: "Resume", href: "/resume" },
+  { label: "Résumé", href: "/resume" },
   { label: "Contact", href: "/contact" },
 ];
 
 export const unresolvedPlaceholders = [
-  "TODO_LINKEDIN_URL",
-  "TODO_APPROVED_PUBLIC_RESUME_FILE",
   "TODO_POWER_BI_PORTFOLIO_URL",
   "TODO_TABLEAU_PUBLIC_URL",
 ];

@@ -4,7 +4,7 @@ import { Source_Sans_3, Roboto_Slab } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/lib/seo";
-import { profile } from "@/config/profile";
+import { profile, positioning, education, certifications } from "@/config/profile";
 import "./globals.css";
 
 const sourceSans = Source_Sans_3({
@@ -35,14 +35,44 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  // No phone number, credential IDs, street address or ZIP: public location is
+  // limited to the city and state.
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: profile.fullName,
-    jobTitle: profile.title,
+    honorificSuffix: profile.credentials,
+    jobTitle: "Senior Construction Project Manager",
+    description: positioning,
     url: profile.portfolioCanonicalUrl,
     email: `mailto:${profile.publicEmail}`,
-    sameAs: [profile.githubProfileUrl, profile.inProjectUrl, profile.inProjectAiUrl],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Lehi",
+      addressRegion: "Utah",
+      addressCountry: "US",
+    },
+    sameAs: [
+      profile.linkedinUrl,
+      profile.githubProfileUrl,
+      profile.inProjectUrl,
+      profile.inProjectAiUrl,
+    ],
+    knowsLanguage: profile.languages,
+    alumniOf: education.map((item) => ({
+      "@type": "EducationalOrganization",
+      name: item.org,
+    })),
+    hasCredential: certifications.map((item) => ({
+      "@type": "EducationalOccupationalCredential",
+      name: item.name,
+      recognizedBy: { "@type": "Organization", name: item.org },
+    })),
+    worksFor: {
+      "@type": "Organization",
+      name: "In Project LLC",
+      url: profile.inProjectUrl,
+    },
     founder: {
       "@type": "Organization",
       name: "In Project LLC",
@@ -52,10 +82,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       "construction project management",
       "construction project controls",
       "project controls analytics",
-      "Power BI construction dashboard",
+      "construction data analytics",
+      "change-order analytics",
+      "RFI workflow analytics",
+      "construction predictive analytics",
+      "cost-overrun prediction",
+      "schedule-delay prediction",
+      "Power BI construction dashboards",
       "Tableau construction analytics",
       "Earned Value Management",
       "AI leadership in project management",
+      "responsible AI for construction",
+      "bilingual English Spanish project manager",
     ],
   };
 
