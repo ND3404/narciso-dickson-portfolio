@@ -44,6 +44,11 @@ export function Footer() {
                 GitHub
               </a>
             </li>
+            <li>
+              <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">
+                LinkedIn
+              </a>
+            </li>
           </ul>
         </div>
         <div>
@@ -52,6 +57,12 @@ export function Footer() {
             <li>
               <a href={`mailto:${profile.publicEmail}`}>{profile.publicEmail}</a>
             </li>
+            <li>
+              <a href={profile.resumeUrl} target="_blank" rel="noopener noreferrer">
+                Download résumé ({profile.resumeFormat})
+              </a>
+            </li>
+            <li>{profile.location}</li>
             <li>
               <Link href="/contact">Contact page</Link>
             </li>
