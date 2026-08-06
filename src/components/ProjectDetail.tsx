@@ -93,6 +93,16 @@ function CompleteCaseStudy() {
         <h2>Executive dashboard</h2>
         <Image
           className="case-image"
+          src="/case-study/p1-executive-dashboard.png"
+          alt="Executive dashboard showing portfolio health, forecast overrun by project type, cost and schedule efficiency, and the top-10 review list"
+          width={2400}
+          height={1425}
+        />
+      </section>
+      <section className="detail-section">
+        <h2>Portfolio health</h2>
+        <Image
+          className="case-image"
           src="/case-study/portfolio-health-overview.png"
           alt="Portfolio health overview chart from the synthetic construction project-controls case study"
           width={1400}
@@ -179,6 +189,26 @@ function Project2CompleteCaseStudy() {
           <p>{body}</p>
         </section>
       ))}
+      <section className="detail-section">
+        <h2>Executive dashboard</h2>
+        <Image
+          className="case-image"
+          src="/case-study/p2-executive-dashboard.png"
+          alt="Executive dashboard showing RFI response performance, commercial exposure by change category, workflow health and the projects needing attention"
+          width={2400}
+          height={1425}
+        />
+      </section>
+      <section className="detail-section">
+        <h2>Workflow bottlenecks</h2>
+        <Image
+          className="case-image"
+          src="/case-study/p2-workflow-analysis.png"
+          alt="Workflow analysis dashboard showing the slowest stages, rework loops, tested relationships and approved value by initiating party"
+          width={2400}
+          height={1425}
+        />
+      </section>
     </>
   );
 }
@@ -231,20 +261,20 @@ function Project3CompleteCaseStudy() {
         <h2>Executive model dashboard</h2>
         <Image
           className="case-image"
-          src="/case-study/predictive-executive-model-dashboard.png"
+          src="/case-study/p3-executive-dashboard.png"
           alt="Executive dashboard summarizing predicted cost-overrun and schedule-delay risk across the synthetic construction portfolio"
-          width={1736}
-          height={1672}
+          width={2400}
+          height={1425}
         />
       </section>
       <section className="detail-section">
         <h2>Model performance</h2>
         <Image
           className="case-image"
-          src="/case-study/predictive-model-performance-dashboard.png"
-          alt="Model performance dashboard showing ROC and precision-recall curves for the cost-overrun and schedule-delay classifiers"
-          width={1471}
-          height={1069}
+          src="/case-study/p3-model-performance.png"
+          alt="Model performance dashboard showing calibration, model comparison and the confusion matrix for both classifiers"
+          width={2400}
+          height={1425}
         />
       </section>
     </>

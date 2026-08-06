@@ -1,7 +1,7 @@
 import { ActionLink } from "@/components/Actions";
 import { CommandCenter } from "@/components/CommandCenter";
 import { ProjectCard } from "@/components/ProjectCard";
-import { projects, profile } from "@/config/profile";
+import { projects, profile, portfolioMetrics, techStack } from "@/config/profile";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -54,6 +54,28 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section section-dark">
+        <div className="container">
+          <div className="section-heading">
+            <p className="eyebrow">Portfolio at a glance</p>
+            <h2>Three complete case studies, every number traceable to its source data.</h2>
+            <p>
+              Each project runs the full Ask, Prepare, Process, Analyze, Share and Act
+              lifecycle and ships its data, SQL, Python, dashboards and report publicly on
+              GitHub. All datasets are synthetic and disclosed as such.
+            </p>
+          </div>
+          <div className="metric-band">
+            {portfolioMetrics.map(([value, label]) => (
+              <div key={label}>
+                <strong>{value}</strong>
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section section-white">
         <div className="container">
           <div className="section-heading">
@@ -80,6 +102,27 @@ export default function Home() {
           <div className="project-grid">
             {projects.map((project) => (
               <ProjectCard project={project} key={project.slug} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-white">
+        <div className="container">
+          <div className="section-heading">
+            <p className="eyebrow">Tools and methods</p>
+            <h2>The stack behind the case studies.</h2>
+          </div>
+          <div className="stack-grid">
+            {techStack.map((group) => (
+              <article className="stack-card value-card" key={group.title}>
+                <h3>{group.title}</h3>
+                <div className="chip-grid">
+                  {group.items.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+              </article>
             ))}
           </div>
         </div>

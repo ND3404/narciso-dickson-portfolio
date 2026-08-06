@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ActionLink } from "./Actions";
 import type { projects } from "@/config/profile";
 
@@ -10,6 +11,11 @@ export function StatusBadge({ status }: { status: Project["status"] }) {
 export function ProjectCard({ project }: { project: Project; featured?: boolean }) {
   return (
     <article className="project-card">
+      {project.thumb && (
+        <a className="card-thumb" href={project.detailHref} aria-label={`${project.title} case study`}>
+          <Image src={project.thumb} alt={project.thumbAlt} width={2400} height={1425} />
+        </a>
+      )}
       <div className="card-topline">
         <StatusBadge status={project.status} />
         <span className="mini-label">Synthetic data</span>

@@ -1,18 +1,28 @@
 @import "tailwindcss";
 
+/* In Project design system.
+   Tokens mirror inproject-ai-agents/public/site.css so the portfolio, the
+   dashboards and the case-study reports all read as one brand.
+   --cyan and --blue keep their names for compatibility but now carry the
+   brand accent (terracotta) and its steel secondary. */
 :root {
   --navy: #02000b;
-  --navy-2: #0b1020;
-  --navy-3: #121a2c;
-  --cyan: #2ecde3;
-  --blue: #3278ff;
+  --navy-2: #0c0a16;
+  --navy-3: #15121f;
+  --cyan: #a04732;        /* brand accent - terracotta */
+  --cyan-2: #bd5a43;      /* terracotta light */
+  --blue: #53616d;        /* steel secondary */
   --terracotta: #a04732;
+  --beige: #edeae2;
   --paper: #ffffff;
-  --bg: #f5f7fb;
-  --soft: #e8edf5;
-  --line: #d8e1ec;
-  --ink: #171b24;
-  --muted: #5d6675;
+  --bg: #f6f3ec;
+  --soft: #edeae2;
+  --line: #e2dccf;
+  --ink: #262320;
+  --muted: #5b564e;
+  --green: #3f9d6b;
+  --amber: #c8881f;
+  --red: #c0492f;
   --radius: 8px;
   --shadow: 0 24px 70px rgba(2, 0, 11, 0.15);
 }
@@ -35,7 +45,7 @@ body {
   overflow-x: clip;
 }
 
-body::selection { background: rgba(46, 205, 227, 0.28); }
+body::selection { background: rgba(160, 71, 50, 0.22); }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; }
 
@@ -169,7 +179,7 @@ p { color: var(--muted); line-height: 1.68; }
 }
 
 .btn:hover { transform: translateY(-1px); }
-.btn-primary { color: var(--navy); background: linear-gradient(135deg, var(--cyan), #9cf4ff); box-shadow: 0 16px 34px rgba(46, 205, 227, 0.2); }
+.btn-primary { color: #fff; background: linear-gradient(135deg, var(--cyan), var(--cyan-2)); box-shadow: 0 16px 34px rgba(160, 71, 50, 0.24); }
 .btn-secondary { color: var(--navy); background: #fff; border-color: var(--line); }
 .btn-ghost { color: var(--navy); background: transparent; border-color: rgba(2, 0, 11, 0.2); }
 .btn-dark { color: #fff; background: var(--navy); }
@@ -332,7 +342,34 @@ p { color: var(--muted); line-height: 1.68; }
 .status-planned { background: rgba(50, 120, 255, 0.13); color: #174cbd; }
 
 .fact-list, .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
-.disclosure { padding: 12px; border-left: 3px solid var(--cyan); background: #f4fbfd; color: #34425a; font-size: 0.92rem; }
+.disclosure { padding: 12px; border-left: 3px solid var(--cyan); background: #faf7f2; color: var(--muted); font-size: 0.92rem; }
+
+/* --- recruiter-facing additions --- */
+.metric-band { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.metric-band > div {
+  padding: 22px; border: 1px solid rgba(255, 255, 255, 0.14); border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.04);
+}
+.metric-band strong {
+  display: block; color: #fff; font-family: var(--font-display), Georgia, serif;
+  font-size: 2.1rem; line-height: 1.1;
+}
+.metric-band span {
+  display: block; margin-top: 8px; color: rgba(255, 255, 255, 0.66);
+  font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
+}
+.card-thumb {
+  display: block; margin: -24px -24px 4px; border-bottom: 1px solid var(--line);
+  border-radius: var(--radius) var(--radius) 0 0; overflow: hidden; background: var(--bg);
+}
+.card-thumb img { display: block; width: 100%; height: auto; }
+.stack-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.stack-card { padding: 22px; }
+.stack-card h3 { margin: 0 0 12px; font-size: 1.05rem; }
+@media (max-width: 900px) {
+  .metric-band { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stack-grid { grid-template-columns: 1fr; }
+}
 
 .ecosystem-grid, .detail-layout, .resume-grid, .contact-grid {
   display: grid;

@@ -32,6 +32,32 @@ export const profile = {
 
 export type ProjectStatus = "Complete and Public" | "In Development" | "Planned";
 
+/** Headline results across the published case studies, for the landing page. */
+export const portfolioMetrics = [
+  ["2,527", "Synthetic projects analyzed"],
+  ["$5.83B", "Portfolio value modeled"],
+  ["0.899", "Best model ROC-AUC"],
+  ["3", "End-to-end case studies"],
+] as const;
+
+export const techStack = [
+  {
+    title: "Analytics and engineering",
+    items: ["Python", "pandas", "scikit-learn", "SQL", "SQLite", "Excel modeling",
+            "Data validation", "Relational design"],
+  },
+  {
+    title: "Business intelligence",
+    items: ["Power BI", "Tableau", "Executive dashboards", "KPI design",
+            "matplotlib", "Report automation", "Data storytelling"],
+  },
+  {
+    title: "Project controls and governance",
+    items: ["Earned Value Management", "CPI / SPI", "Change management", "RFI workflow",
+            "Risk registers", "Model governance", "Responsible AI", "PMP"],
+  },
+] as const;
+
 export const projects = [
   {
     slug: "construction-project-controls-analytics",
@@ -56,6 +82,8 @@ export const projects = [
     powerBiUrl: profile.powerBiUrl,
     tableauUrl: profile.tableauPublicUrl,
     detailHref: "/projects/construction-project-controls-analytics",
+    thumb: "/case-study/p1-executive-dashboard.png",
+    thumbAlt: "Executive dashboard showing portfolio health, forecast overrun by project type and the top-10 review list",
     disclosure:
       "All project, client, cost, schedule, RFI, and change-order data in this case study is synthetic and does not represent actual client performance or confidential records.",
     facts: [
@@ -92,6 +120,8 @@ export const projects = [
     powerBiUrl: profile.powerBiUrl,
     tableauUrl: profile.tableauPublicUrl,
     detailHref: "/projects/change-order-rfi-analytics",
+    thumb: "/case-study/p2-executive-dashboard.png",
+    thumbAlt: "Executive dashboard showing RFI response performance, commercial exposure by change category and workflow health",
     disclosure:
       "Current materials use synthetic public portfolio data for education, portfolio demonstration, and analytical-methodology development.",
     facts: [
@@ -127,6 +157,8 @@ export const projects = [
     powerBiUrl: profile.powerBiUrl,
     tableauUrl: profile.tableauPublicUrl,
     detailHref: "/projects/predictive-project-overrun-model",
+    thumb: "/case-study/p3-executive-dashboard.png",
+    thumbAlt: "Executive model dashboard showing predicted risk bands, champion model performance and the highest-risk projects",
     disclosure:
       "All projects, organizations, budgets, schedules, workflow records, and outcomes in this case study are synthetic. Model results are portfolio demonstrations, not industry benchmarks, and the model is not authorized for production use.",
     facts: [
