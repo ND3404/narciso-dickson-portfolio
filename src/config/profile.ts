@@ -17,14 +17,16 @@ export const profile = {
       "https://github.com/ND3404/construction-project-controls-analytics",
     changeOrderRfiAnalytics:
       "https://github.com/ND3404/construction-change-order-rfi-analytics",
-    predictiveProjectOverrunModel: "TODO_PROJECT_3_REPOSITORY_URL",
+    predictiveProjectOverrunModel:
+      "https://github.com/ND3404/predictive-construction-project-overrun-model",
   },
   reportUrls: {
     constructionProjectControlsAnalytics:
       "/downloads/construction-project-controls-analytics-case-study.pdf",
     changeOrderRfiAnalytics:
       "https://github.com/ND3404/construction-change-order-rfi-analytics/blob/main/reports/Construction_Change_Order_and_RFI_Analytics_Case_Study.pdf",
-    predictiveProjectOverrunModel: "TODO_PROJECT_3_REPORT_URL",
+    predictiveProjectOverrunModel:
+      "https://github.com/ND3404/predictive-construction-project-overrun-model/blob/main/reports/Predictive_Construction_Project_Overrun_Model_Case_Study.pdf",
   },
 };
 
@@ -104,21 +106,21 @@ export const projects = [
   },
   {
     slug: "predictive-project-overrun-model",
-    status: "Planned" as ProjectStatus,
-    title: "Predictive Project Overrun Model",
-    subtitle: "Predicting Construction Cost Overruns and Schedule Delays",
+    status: "Complete and Public" as ProjectStatus,
+    title: "Predictive Construction Project Overrun Model",
+    subtitle: "Early-Warning Classification and Regression for Cost Overruns and Schedule Delays",
     problem:
-      "The planned work will explore how early project-controls signals can support responsible prediction of cost-overrun and schedule-delay probability without replacing professional review.",
-    tools: ["Python planned", "SQL planned", "Power BI planned", "Model explainability planned"],
+      "Cost and schedule outcomes are usually confirmed too late to change them. This case study tests which early and mid-project controls and workflow indicators predict material overruns and delays while intervention is still possible.",
+    tools: ["Python", "scikit-learn", "SQL", "SQLite", "Excel", "Power BI spec", "Tableau spec"],
     methodology:
-      "Planned feature engineering, model comparison, explainability review, dashboarding, and governance controls.",
+      "Ask, Prepare, Process, Analyze, Share, and Act, aligned to CRISP-DM, DMAIC, Microsoft's data-science lifecycle, and PMI process groups, with a time-based train, validation, and test split.",
     deliverables: [
-      "Feature engineering notebook",
-      "Predictive model comparison",
-      "Cost-overrun and delay probability outputs",
-      "Power BI predictive-risk dashboard",
-      "Governance and human-review checklist",
-      "Transparent limitations section",
+      "Synthetic relational dataset with generation, cleaning, and validation pipeline",
+      "Classification and regression models with calibration and feature importance",
+      "Scoring and monitoring automation with a runnable sample input",
+      "Executive, risk, performance, and feature-driver dashboards",
+      "Model card, governance framework, and controlled-pilot roadmap",
+      "Final case-study report, Excel workbooks, and SQL",
     ],
     repoUrl: profile.projectRepositoryUrls.predictiveProjectOverrunModel,
     reportUrl: profile.reportUrls.predictiveProjectOverrunModel,
@@ -126,13 +128,15 @@ export const projects = [
     tableauUrl: profile.tableauPublicUrl,
     detailHref: "/projects/predictive-project-overrun-model",
     disclosure:
-      "This project is planned. No model performance, validation statistics, or production readiness is claimed.",
+      "All projects, organizations, budgets, schedules, workflow records, and outcomes in this case study are synthetic. Model results are portfolio demonstrations, not industry benchmarks, and the model is not authorized for production use.",
     facts: [
-      "Status: Planned",
-      "Feature engineering planned",
-      "Python predictive modeling planned",
-      "Explainability planned",
-      "Human review required",
+      "Ask through Act complete",
+      "2,362 clean modeling projects",
+      "40 predictors, time-based split",
+      "Cost ROC-AUC 0.899, PR-AUC 0.774",
+      "Schedule ROC-AUC 0.756, PR-AUC 0.524",
+      "188 Red, 138 Yellow, 110 Green test projects",
+      "Human review required before action",
     ],
   },
 ];
@@ -151,6 +155,4 @@ export const unresolvedPlaceholders = [
   "TODO_APPROVED_PUBLIC_RESUME_FILE",
   "TODO_POWER_BI_PORTFOLIO_URL",
   "TODO_TABLEAU_PUBLIC_URL",
-  "TODO_PROJECT_3_REPOSITORY_URL",
-  "TODO_PROJECT_3_REPORT_URL",
 ];

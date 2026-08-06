@@ -10,6 +10,7 @@ export function ProjectDetail({ slug }: { slug: string }) {
 
   const isComplete = project.slug === "construction-project-controls-analytics";
   const isProject2 = project.slug === "change-order-rfi-analytics";
+  const isProject3 = project.slug === "predictive-project-overrun-model";
 
   return (
     <>
@@ -26,7 +27,8 @@ export function ProjectDetail({ slug }: { slug: string }) {
 
             {isComplete && <CompleteCaseStudy />}
             {isProject2 && <Project2CompleteCaseStudy />}
-            {!isComplete && !isProject2 && <PlannedCaseStudy />}
+            {isProject3 && <Project3CompleteCaseStudy />}
+            {!isComplete && !isProject2 && !isProject3 && <PlannedCaseStudy />}
 
             <section className="detail-section">
               <h2>Synthetic-data disclosure</h2>
@@ -177,6 +179,74 @@ function Project2CompleteCaseStudy() {
           <p>{body}</p>
         </section>
       ))}
+    </>
+  );
+}
+
+function Project3CompleteCaseStudy() {
+  const phases = [
+    ["Ask", "Complete"],
+    ["Prepare", "Complete"],
+    ["Process", "Complete"],
+    ["Analyze", "Complete"],
+    ["Share", "Complete"],
+    ["Act", "Complete"],
+  ];
+
+  return (
+    <>
+      <section className="detail-section">
+        <h2>Executive overview</h2>
+        <p>
+          This complete public case study predicts final cost overrun of at least
+          10 percent and final schedule delay of at least 30 days from early and
+          mid-project controls and workflow indicators, using 2,362 clean synthetic
+          project snapshots and 40 predictors.
+        </p>
+        <div className="phase-grid">
+          {phases.map(([phase, status]) => (
+            <div className="phase-card" key={phase}>
+              <span>{phase}</span>
+              <strong>{status}</strong>
+            </div>
+          ))}
+        </div>
+      </section>
+      {[
+        ["Business question", "Which early and mid-project indicators best predict material construction cost overruns and schedule delays, and how can management prioritize intervention before the outcomes become unavoidable?"],
+        ["Feature lineage", "The 40 predictors combine controls concepts from the first case study, including CPI, SPI, variance, and contingency, with workflow concepts from the second, including RFI backlog, change exposure, approval cycles, and revision loops."],
+        ["Validation design", "Models are split by time rather than at random: 1,577 projects from 2019 through 2023 for training, 349 from 2024 for validation, and 436 from 2025 as a future test period. Final outcome fields are excluded from the predictors."],
+        ["Model performance", "The cost-overrun champion is a Random Forest with test ROC-AUC 0.899 and PR-AUC 0.774. The schedule-delay champion is a Logistic Regression with test ROC-AUC 0.756 and PR-AUC 0.524."],
+        ["Temporal degradation", "Schedule-delay performance declines from validation to the future test period. This is reported as a model-monitoring concern rather than hidden, and it drives the retraining and drift thresholds defined in the Act phase."],
+        ["Management output", "Each test project receives a cost probability, a schedule probability, a combined probability, and a Red, Yellow, or Green risk band, producing 188 Red, 138 Yellow, and 110 Green projects for review prioritization."],
+        ["Governance", "The Act phase defines a controlled-pilot path with human review, drift monitoring, override logging, retraining triggers, incident controls, and a model card. Production use is not authorized."],
+        ["Limitations", "The data is synthetic, the results are not industry benchmarks, the models establish association rather than causation, and every prediction requires professional review before any decision."],
+      ].map(([heading, body]) => (
+        <section className="detail-section" key={heading}>
+          <h2>{heading}</h2>
+          <p>{body}</p>
+        </section>
+      ))}
+      <section className="detail-section">
+        <h2>Executive model dashboard</h2>
+        <Image
+          className="case-image"
+          src="/case-study/predictive-executive-model-dashboard.png"
+          alt="Executive dashboard summarizing predicted cost-overrun and schedule-delay risk across the synthetic construction portfolio"
+          width={1736}
+          height={1672}
+        />
+      </section>
+      <section className="detail-section">
+        <h2>Model performance</h2>
+        <Image
+          className="case-image"
+          src="/case-study/predictive-model-performance-dashboard.png"
+          alt="Model performance dashboard showing ROC and precision-recall curves for the cost-overrun and schedule-delay classifiers"
+          width={1471}
+          height={1069}
+        />
+      </section>
     </>
   );
 }
