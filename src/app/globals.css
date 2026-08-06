@@ -59,7 +59,7 @@ h1, h2, h3 {
 p { color: var(--muted); line-height: 1.68; }
 
 :focus-visible {
-  outline: 3px solid rgba(46, 205, 227, 0.7);
+  outline: 3px solid rgba(160, 71, 50,0.7);
   outline-offset: 3px;
 }
 
@@ -191,8 +191,8 @@ p { color: var(--muted); line-height: 1.68; }
   padding: 92px 0 82px;
   color: #fff;
   background:
-    radial-gradient(900px 420px at 78% 18%, rgba(46, 205, 227, 0.22), transparent 62%),
-    radial-gradient(700px 340px at 12% 12%, rgba(50, 120, 255, 0.22), transparent 58%),
+    radial-gradient(900px 420px at 78% 18%, rgba(160, 71, 50,0.22), transparent 62%),
+    radial-gradient(700px 340px at 12% 12%, rgba(83, 97, 109,0.22), transparent 58%),
     var(--navy);
 }
 
@@ -265,7 +265,7 @@ p { color: var(--muted); line-height: 1.68; }
   z-index: 1;
   padding: 22px;
   background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(46, 205, 227, 0.28);
+  border: 1px solid rgba(160, 71, 50,0.28);
   border-radius: 14px;
   box-shadow: var(--shadow);
 }
@@ -288,14 +288,14 @@ p { color: var(--muted); line-height: 1.68; }
   height: 10px;
   border-radius: 999px;
   background: var(--cyan);
-  box-shadow: 0 0 0 6px rgba(46, 205, 227, 0.15);
+  box-shadow: 0 0 0 6px rgba(160, 71, 50,0.15);
 }
 
 .status-chip {
   padding: 4px 9px;
   border-radius: 999px;
   color: #0c6f7f;
-  background: rgba(46, 205, 227, 0.14);
+  background: rgba(160, 71, 50,0.14);
   font-size: 0.7rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -339,7 +339,7 @@ p { color: var(--muted); line-height: 1.68; }
 .status { color: var(--navy); border-color: transparent; }
 .status-complete-and-public { background: rgba(42, 168, 111, 0.13); color: #14643e; }
 .status-in-development { background: rgba(200, 136, 31, 0.16); color: #77500b; }
-.status-planned { background: rgba(50, 120, 255, 0.13); color: #174cbd; }
+.status-planned { background: rgba(83, 97, 109, 0.14); color: #3d4750; }
 
 .fact-list, .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
 .disclosure { padding: 12px; border-left: 3px solid var(--cyan); background: #faf7f2; color: var(--muted); font-size: 0.92rem; }
@@ -390,7 +390,7 @@ p { color: var(--muted); line-height: 1.68; }
   overflow: hidden;
   padding: 88px 0 72px;
   background:
-    radial-gradient(780px 360px at 72% 0%, rgba(46, 205, 227, 0.18), transparent 60%),
+    radial-gradient(780px 360px at 72% 0%, rgba(160, 71, 50,0.18), transparent 60%),
     var(--navy);
 }
 
