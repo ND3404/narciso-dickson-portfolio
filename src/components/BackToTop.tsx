@@ -8,10 +8,17 @@ export function BackToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > SHOW_AFTER);
+    const offset = () =>
+      window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const onScroll = () => setVisible(offset() > SHOW_AFTER);
     onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    // `html` carries overflow-x: clip, which makes it a scroll container. Scroll
+    // events then fire on that element and never reach a bubble-phase window
+    // listener, even though window.scrollY still updates. Capture catches them
+    // wherever they originate.
+    window.addEventListener("scroll", onScroll, { passive: true, capture: true });
+    return () =>
+      window.removeEventListener("scroll", onScroll, { capture: true } as EventListenerOptions);
   }, []);
 
   function toTop() {
