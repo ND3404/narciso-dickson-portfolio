@@ -4,7 +4,7 @@ import { Source_Sans_3, Roboto_Slab } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/lib/seo";
-import { profile, positioning, education, certifications } from "@/config/profile";
+import { profile, positioningLong, education, certifications } from "@/config/profile";
 import "./globals.css";
 
 const sourceSans = Source_Sans_3({
@@ -42,8 +42,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     "@type": "Person",
     name: profile.fullName,
     honorificSuffix: profile.credentials,
-    jobTitle: "Senior Construction Project Manager",
-    description: positioning,
+    jobTitle: "Founder & Construction Project Management Consultant",
+    description: positioningLong.join(" "),
     url: profile.portfolioCanonicalUrl,
     email: `mailto:${profile.publicEmail}`,
     address: {

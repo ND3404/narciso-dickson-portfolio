@@ -17,7 +17,10 @@ export function Header() {
       </a>
       <div className="container header-inner">
         <Link className="wordmark" href="/" onClick={() => setOpen(false)}>
-          <span>{profile.fullName}</span>
+          <span>
+            {profile.fullName}
+            <em>{profile.credentials}</em>
+          </span>
           <small>{profile.shortDescriptor}</small>
         </Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
@@ -35,6 +38,14 @@ export function Header() {
           </a>
         </nav>
         <div className="header-actions">
+          <span className="util-links">
+            <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+            <a href={profile.githubProfileUrl} target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+          </span>
           <ActionLink href="/projects" variant="primary">
             View Projects
           </ActionLink>
@@ -60,8 +71,11 @@ export function Header() {
         <a href={profile.inProjectUrl} target="_blank" rel="noopener noreferrer">
           In Project
         </a>
-        <a href={profile.inProjectAiUrl} target="_blank" rel="noopener noreferrer">
-          In Project AI
+        <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+        <a href={profile.githubProfileUrl} target="_blank" rel="noopener noreferrer">
+          GitHub
         </a>
       </nav>
     </header>

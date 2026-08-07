@@ -29,7 +29,7 @@ export const profile = {
 
   linkedinUrl: "https://www.linkedin.com/in/narcisodickson",
   githubProfileUrl: "https://github.com/ND3404",
-  publicEmail: "info@inprojectmanagement.com",
+  publicEmail: "ndickson@inprojectmanagement.com",
   inProjectUrl: "https://www.inprojectmanagement.com/",
   inProjectAiUrl: "https://agents.inprojectmanagement.com/",
   portfolioCanonicalUrl: "https://narciso-dickson-portfolio.vercel.app",
@@ -64,8 +64,15 @@ export const isPending = (value: string) => value.startsWith("TODO_");
 
 // ---------------------------------------------------------------- positioning
 
+/** Short form for the home page. */
 export const positioning =
-  "Narciso M. Dickson, MS, PMP®, is a construction project and program management professional with 15+ years leading construction, design, and consulting work. He has managed multimillion-dollar portfolios, concurrent projects, multidisciplinary teams, procurement, contracts, budgets, schedules, risk, quality, and stakeholder governance. He now combines that leadership foundation with Excel, Power BI, SQL, construction analytics, predictive modeling, and responsible AI governance as the founder of In Project LLC.";
+  "Narciso M. Dickson, MS, PMP®, is a construction project/program management and project-controls professional with 15+ years leading construction, design, and consulting work. As the founder of In Project LLC, he combines that construction leadership foundation with Excel, Power BI, SQL, Python, construction analytics, predictive modeling, and responsible AI governance to improve project visibility and support timely, evidence-based decisions.";
+
+/** Expanded form for About and Résumé. Deliberately not identical to the above. */
+export const positioningLong = [
+  "Narciso M. Dickson, MS, PMP®, is a construction project/program management and project-controls professional with 15+ years of experience leading construction, design, and consulting work. His background includes multimillion-dollar portfolios, concurrent projects, multidisciplinary teams, budgets, schedules, procurement, contracts, risk, quality, change control, and stakeholder governance.",
+  "As the founder of In Project LLC, he combines that construction leadership foundation with Excel, Power BI, SQL, Python, construction analytics, predictive modeling, and responsible AI governance to improve project visibility and support timely, evidence-based decisions.",
+] as const;
 
 /** Verified credibility markers. Not client results — do not present as outcomes. */
 export const trustMarkers = [
@@ -113,19 +120,24 @@ export const audiencePaths = [
 
 export const timeline = [
   {
-    period: "2022 – Present",
-    role: "Senior Construction Project Manager and Founder",
+    period: "January 2022 – Present",
+    role: "Founder & Construction Project Management Consultant",
     org: "In Project LLC — Lehi, Utah",
-    kind: "Construction leadership and analytics",
+    kind: "Construction Project Controls · Analytics · Digital Solutions",
     summary:
-      "Directs complete project lifecycles from concept to closeout while building the analytics and AI capability behind In Project.",
+      "Leads construction project planning and controls across multiple concurrent assignments while building the analytics and decision-support practice behind In Project.",
     points: [
-      "Reduced project preparation time by 30% through streamlined planning",
-      "Manages 10+ concurrent projects annually with schedule, budget, and governance frameworks",
-      "Reduced project and vendor expenses by 25% through RFQ/RFP processes and contract negotiation",
-      "Processes change orders and invoices, and maintains reporting protocols and project controls",
-      "Builds Excel and Power BI dashboards for schedule, cost, and KPI visibility",
-      "Delivers web design and local SEO as an additional In Project capability",
+      "Lead construction project planning and controls across multiple concurrent assignments, integrating scope, budget, schedule, procurement, risk, change management, reporting, and closeout",
+      "Develop project-control frameworks, KPI reporting, risk registers, change-control workflows, and owner-ready dashboards to improve visibility and accountability",
+      "Build Excel and Power BI dashboards for cost, schedule, risk, change orders, RFIs, and executive project reporting",
+      "Coordinate stakeholders, vendors, consultants, and project teams while supporting procurement, contract negotiations, invoices, changes, and project governance",
+      "Developed an integrated construction analytics portfolio covering project controls, RFI and change-order workflows, and predictive overrun modeling using Python, SQL, SQLite, Excel, Power BI, Tableau, and machine-learning methods",
+    ],
+    /** Shown once, on the Résumé page only, so the metrics are not repeated. */
+    outcomes: [
+      "10+ concurrent projects annually",
+      "30% reduction in project-preparation time",
+      "25% expense reduction through vendor and contract negotiation",
     ],
   },
   {
@@ -172,11 +184,16 @@ export const education = [
   },
 ] as const;
 
-/** Credential IDs are deliberately omitted from the public site. */
+/**
+ * Credential IDs are deliberately omitted from the public site.
+ * "Agile Hybrid Project" is the wording used in the approved résumé source; it is
+ * kept verbatim rather than expanded to a title the source does not state.
+ */
 export const certifications = [
   { name: "Project Management Professional (PMP)®", org: "Project Management Institute" },
+  { name: "Google Data Analytics Professional Certificate", org: "Google" },
   { name: "Google Project Management Specialization", org: "Google" },
-  { name: "Construction Management Specialization", org: "Columbia University" },
+  { name: "Construction Management Specialization", org: "Columbia University / Coursera" },
   { name: "Agile Hybrid Project", org: "Project Management Institute" },
 ] as const;
 
@@ -245,14 +262,54 @@ export const competencies = [
     ],
   },
   {
-    title: "Responsible AI, digital solutions, and technical reading",
+    title: "Responsible AI and digital solutions",
     items: [
       "AI use-case definition",
       "Model cards and human review",
       "Drift monitoring and overrides",
-      "Architectural, structural, MEP, civil, and geotechnical drawings",
       "Web design and local SEO",
       "Bilingual English and Spanish",
+    ],
+  },
+] as const;
+
+/** Four capability areas, shown in About. Replaces the standalone Expertise page. */
+export const capabilities = [
+  {
+    title: "Project and Program Leadership",
+    items: [
+      "Project lifecycle and governance",
+      "Scope, schedule, budget, risk, quality, and stakeholder management",
+      "Agile, Waterfall, and Hybrid delivery",
+      "Multidisciplinary team leadership",
+    ],
+  },
+  {
+    title: "Construction Project Controls",
+    items: [
+      "Cost and schedule controls",
+      "CPI, SPI, EAC, variance, and contingency",
+      "Procurement, contracts, RFIs, submittals, and change orders",
+      "Forecasting, reporting, and closeout",
+    ],
+  },
+  {
+    title: "Construction Data Analytics",
+    items: [
+      "Excel, Power BI, SQL, SQLite, Python, and Tableau",
+      "Data preparation and validation",
+      "Dashboard development",
+      "Descriptive, diagnostic, and predictive analytics",
+    ],
+  },
+  {
+    title: "Responsible AI and Digital Solutions",
+    items: [
+      "AI-enabled project workflows",
+      "Predictive-risk concepts",
+      "Data-quality and leakage controls",
+      "Model cards, human review, overrides, and monitoring",
+      "In Project AI product and workflow leadership",
     ],
   },
 ] as const;
@@ -517,13 +574,12 @@ export const legacyProjectSlugs: Record<string, string> = {
   "predictive-project-overrun-model": "predictive-construction-project-overrun-model",
 };
 
+/** Main navigation. Expertise folded into About; Contact is a home-page section. */
 export const siteNav = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
-  { label: "Expertise", href: "/expertise" },
   { label: "Résumé", href: "/resume" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const unresolvedPlaceholders = [

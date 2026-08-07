@@ -2,10 +2,10 @@ import { ActionLink } from "@/components/Actions";
 import { PageHero } from "@/components/PageHero";
 import {
   profile,
+  positioningLong,
   timeline,
   education,
   certifications,
-  targetRoles,
   competencies,
   projects,
 } from "@/config/profile";
@@ -14,9 +14,28 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Résumé",
   description:
-    "PMP® construction project and program leader with 15+ years of experience, project controls, data analytics, business intelligence, and responsible AI governance. Based in Lehi, Utah.",
+    "PMP® construction project and program leader with 15+ years of experience, project controls, construction data analytics, and responsible AI governance. Founder of In Project LLC, based in Lehi, Utah.",
   path: "/resume",
 });
+
+/** Two or three lines per project; the full narrative lives on the case study. */
+const PROJECT_LINES: Record<string, string[]> = {
+  "construction-project-controls-analytics": [
+    "Built an early-warning analysis across 75 synthetic projects and a $5.83B portfolio, covering earned value, change orders, RFIs, and contingency.",
+    "Identified contingency burn ratio as the strongest tested association with forecast overrun (Pearson r = 0.901).",
+    "Delivered SQL schema and views, Excel workbooks, executive dashboards, a management action plan, and an alerting script.",
+  ],
+  "construction-change-order-rfi-analytics": [
+    "Analyzed 3,318 RFIs and 1,119 change orders across 90 synthetic projects to locate where cycle time and backlog create exposure.",
+    "Found the strongest portfolio relationship between RFI response time and change approval cycle (Pearson r = 0.817).",
+    "Produced a composite workflow-risk score, executive and operational dashboards, and a management action plan.",
+  ],
+  "predictive-construction-project-overrun-model": [
+    "Trained classification and regression models on 2,362 synthetic projects with 40 predictors and a time-based 2019-2025 split.",
+    "Reached test ROC-AUC 0.899 for cost overrun; documented the schedule model's decline from validation to test as a monitoring concern.",
+    "Delivered calibration, permutation importance, a model card, human-review workflow, and drift controls. Production use is not authorized.",
+  ],
+};
 
 export default function ResumePage() {
   return (
@@ -30,37 +49,9 @@ export default function ResumePage() {
           <article className="detail-main">
             <section className="detail-section">
               <h2>Professional summary</h2>
-              <p>
-                PMP®-certified construction project and program leader with{" "}
-                {profile.experienceYears} years delivering construction and design work,
-                currently Senior Construction Project Manager and founder of In Project
-                LLC. Experience spans multimillion-dollar portfolios, concurrent project
-                loads, procurement and contract negotiation, risk and quality governance,
-                and executive stakeholder reporting — now combined with Excel, Power BI,
-                SQL, predictive analytics, and responsible AI governance. Bilingual in{" "}
-                {profile.languages.join(" and ")}, based in {profile.location}.
-              </p>
-            </section>
-
-            <section className="detail-section">
-              <h2>Experience</h2>
-              <div className="timeline">
-                {timeline.map((entry) => (
-                  <article className="timeline-item" key={entry.period}>
-                    <header>
-                      <span className="timeline-period">{entry.period}</span>
-                      <span className="mini-label">{entry.kind}</span>
-                    </header>
-                    <h3>{entry.role}</h3>
-                    <p className="timeline-org">{entry.org}</p>
-                    <ul>
-                      {entry.points.map((point) => (
-                        <li key={point}>{point}</li>
-                      ))}
-                    </ul>
-                  </article>
-                ))}
-              </div>
+              {positioningLong.map((para) => (
+                <p key={para.slice(0, 40)}>{para}</p>
+              ))}
             </section>
 
             <section className="detail-section">
@@ -80,52 +71,47 @@ export default function ResumePage() {
             </section>
 
             <section className="detail-section">
-              <h2>Target role families</h2>
-              <p className="muted-note">
-                Pathways where this combination of construction delivery, controls, and
-                analytics applies — not a list of titles already held.
-              </p>
-              <div className="role-grid">
-                {targetRoles.map((role) => (
-                  <span key={role}>{role}</span>
+              <h2>Professional experience</h2>
+              <div className="exp-list">
+                {timeline.map((entry) => (
+                  <article className="exp-item" key={entry.period}>
+                    <div className="exp-head">
+                      <h3>{entry.role}</h3>
+                      <span className="exp-period">{entry.period}</span>
+                    </div>
+                    <p className="exp-org">{entry.org}</p>
+                    <ul>
+                      {entry.points.map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
+                    {"outcomes" in entry && entry.outcomes ? (
+                      <div className="fact-list" style={{ marginTop: "12px" }}>
+                        {entry.outcomes.map((o) => (
+                          <span key={o}>{o}</span>
+                        ))}
+                      </div>
+                    ) : null}
+                  </article>
                 ))}
               </div>
             </section>
 
             <section className="detail-section">
-              <h2>Education</h2>
-              <div className="credential-list">
-                {education.map((item) => (
-                  <div key={item.credential}>
-                    <strong>{item.credential}</strong>
-                    <span>
-                      {item.org} · {item.period}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className="detail-section">
-              <h2>Certifications</h2>
-              <div className="credential-list">
-                {certifications.map((item) => (
-                  <div key={item.name}>
-                    <strong>{item.name}</strong>
-                    <span>{item.org}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className="detail-section">
-              <h2>Published case studies</h2>
-              <div className="credential-list">
+              <h2>Selected construction analytics projects</h2>
+              <div className="exp-list">
                 {projects.map((project) => (
-                  <div key={project.slug}>
-                    <strong>{project.title}</strong>
-                    <span>{project.scale}</span>
-                    <div className="action-row" style={{ marginTop: "10px" }}>
+                  <article className="exp-item" key={project.slug}>
+                    <div className="exp-head">
+                      <h3>{project.title}</h3>
+                      <span className="exp-period">{project.stage}</span>
+                    </div>
+                    <ul>
+                      {PROJECT_LINES[project.slug].map((line) => (
+                        <li key={line}>{line}</li>
+                      ))}
+                    </ul>
+                    <div className="action-row" style={{ marginTop: "12px" }}>
                       <ActionLink href={project.detailHref} variant="ghost">
                         Case study
                       </ActionLink>
@@ -133,31 +119,64 @@ export default function ResumePage() {
                         GitHub
                       </ActionLink>
                     </div>
-                  </div>
+                  </article>
                 ))}
+              </div>
+            </section>
+
+            <section className="detail-section">
+              <h2>Certifications</h2>
+              <ul className="cert-list plain-list">
+                {certifications.map((item) => (
+                  <li key={item.name}>
+                    <strong>{item.name}</strong>
+                    <span>{item.org}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="detail-section">
+              <h2>Education</h2>
+              <ul className="cert-list plain-list">
+                {education.map((item) => (
+                  <li key={item.credential}>
+                    <strong>{item.credential}</strong>
+                    <span>
+                      {item.org} · {item.period}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="detail-section">
+              <h2>Languages</h2>
+              <p>{profile.languages.join(" and ")}, professional working proficiency.</p>
+            </section>
+
+            <section className="detail-section">
+              <h2>Download résumé</h2>
+              <p className="muted-note">
+                One-page résumé. Contact details on the file match the address below.
+              </p>
+              <div className="action-row">
+                <ActionLink href={profile.resumeUrl} variant="primary" external>
+                  Download Résumé ({profile.resumeFormat})
+                </ActionLink>
               </div>
             </section>
           </article>
 
           <aside className="detail-sidebar">
             <div className="sidebar-card">
-              <h2>Download</h2>
-              <div className="stacked-actions">
-                <ActionLink href={profile.resumeUrl} variant="primary" external>
-                  Download Résumé ({profile.resumeFormat})
-                </ActionLink>
-              </div>
-              <p className="sidebar-note" style={{ marginTop: "12px" }}>
-                One-page résumé. Contact details on the file match the professional
-                address below.
-              </p>
-            </div>
-
-            <div className="sidebar-card">
               <h2>Contact</h2>
+              <p className="sidebar-note" style={{ marginBottom: "12px" }}>
+                <a href={`mailto:${profile.publicEmail}`}>{profile.publicEmail}</a>
+              </p>
               <div className="stacked-actions">
                 <ActionLink href={`mailto:${profile.publicEmail}`} variant="dark">
-                  Email
+                  Email Narciso
                 </ActionLink>
                 <ActionLink href={profile.linkedinUrl} variant="secondary" external>
                   LinkedIn
@@ -174,8 +193,8 @@ export default function ResumePage() {
                 <li>{profile.experienceYears} years project and program management</li>
                 <li>PMP® · MS in Project Management</li>
                 <li>$30M+ construction and design portfolios</li>
+                <li>Founder, In Project LLC</li>
                 <li>{profile.location}</li>
-                <li>{profile.languages.join(" and ")}</li>
               </ul>
             </div>
           </aside>
