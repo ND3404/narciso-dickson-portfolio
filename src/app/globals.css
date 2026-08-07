@@ -368,9 +368,14 @@ p { color: var(--muted); line-height: 1.68; }
 }
 .trust-strip span:not(:last-child)::after { content: "|"; margin-left: 18px; color: var(--brand-rust); }
 
-.util-links { display: flex; align-items: center; gap: 14px; }
-.util-links a { color: var(--muted); font-size: 0.88rem; font-weight: 700; }
+.util-links { display: flex; align-items: center; gap: 6px; }
+.util-links a {
+  display: inline-flex; align-items: center;
+  min-height: 44px; padding: 0 10px;   /* meets the minimum touch target */
+  color: var(--muted); font-size: 0.88rem; font-weight: 700;
+}
 .util-links a:hover, .util-links a:focus-visible { color: var(--brand-rust); }
+@media (max-width: 900px) { .util-links { display: none; } }
 
 /* --- experience --- */
 .exp-list { display: grid; gap: 14px; }
