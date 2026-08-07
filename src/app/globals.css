@@ -373,6 +373,10 @@ p { color: var(--muted); line-height: 1.68; }
 }
 
 /* --- back to top --- */
+.btt-sentinel {
+  position: absolute; top: 600px; left: 0;
+  width: 1px; height: 1px; pointer-events: none; visibility: hidden;
+}
 .back-to-top {
   position: fixed; right: 20px; bottom: 20px; z-index: 60;
   display: inline-flex; align-items: center; justify-content: center;
