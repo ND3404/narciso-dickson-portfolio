@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Source_Sans_3, Roboto_Slab } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { BackToTop } from "@/components/BackToTop";
 import { JsonLd } from "@/lib/seo";
 import { profile, positioningLong, education, certifications } from "@/config/profile";
 import "./globals.css";
@@ -101,8 +102,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" className={`${sourceSans.variable} ${robotoSlab.variable}`}>
       <body>
         <Header />
-        <main id="main">{children}</main>
+        <main id="main" tabIndex={-1}>
+          {children}
+        </main>
         <Footer />
+        <BackToTop />
         <JsonLd data={personSchema} />
       </body>
     </html>

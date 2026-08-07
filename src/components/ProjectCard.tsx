@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ActionLink } from "./Actions";
-import type { Project, ProjectStatus } from "@/config/profile";
+import { isPending, type Project, type ProjectStatus } from "@/config/profile";
 
 export function StatusBadge({ status }: { status: ProjectStatus }) {
   return (
@@ -43,14 +43,17 @@ export function ProjectCard({ project }: { project: Project }) {
       <p className="disclosure">{project.disclosure}</p>
       <div className="action-row">
         <ActionLink href={project.detailHref} variant="dark">
-          Case Study
+          View Case Study
         </ActionLink>
-        <ActionLink href={project.reportUrl} variant="secondary" external>
-          Report
+        <ActionLink href={project.repoUrl} variant="secondary" external>
+          View GitHub
         </ActionLink>
-        <ActionLink href={project.repoUrl} variant="ghost" external>
-          GitHub
-        </ActionLink>
+        {/* Report only when a verified link exists; never a dead control. */}
+        {project.reportUrl && !isPending(project.reportUrl) ? (
+          <ActionLink href={project.reportUrl} variant="ghost" external>
+            Download Report
+          </ActionLink>
+        ) : null}
       </div>
     </article>
   );

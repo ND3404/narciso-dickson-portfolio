@@ -1,4 +1,5 @@
 import { ActionLink } from "@/components/Actions";
+import { CopyEmail } from "@/components/CopyEmail";
 import { PageHero } from "@/components/PageHero";
 import {
   profile,
@@ -40,8 +41,15 @@ const PROJECT_LINES: Record<string, string[]> = {
 export default function ResumePage() {
   return (
     <>
-      <PageHero eyebrow="Résumé" title={`${profile.fullName}, ${profile.credentials}`}>
-        <p>{profile.recruiterHeadline}</p>
+      <PageHero
+        eyebrow="Résumé"
+        title={`${profile.fullName}, ${profile.credentials}`}
+        variant="compact"
+      >
+        <p>Construction Project / Program Management</p>
+        <p className="hero-subline">
+          Project Controls · Construction Data Analytics · Responsible AI
+        </p>
       </PageHero>
 
       <section className="section">
@@ -175,15 +183,26 @@ export default function ResumePage() {
                 <a href={`mailto:${profile.publicEmail}`}>{profile.publicEmail}</a>
               </p>
               <div className="stacked-actions">
-                <ActionLink href={`mailto:${profile.publicEmail}`} variant="dark">
+                <a className="btn btn-dark" href={`mailto:${profile.publicEmail}`}>
                   Email Narciso
-                </ActionLink>
-                <ActionLink href={profile.linkedinUrl} variant="secondary" external>
+                </a>
+                <CopyEmail email={profile.publicEmail} />
+                <a
+                  className="btn btn-secondary"
+                  href={profile.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   LinkedIn
-                </ActionLink>
-                <ActionLink href={profile.githubProfileUrl} variant="ghost" external>
+                </a>
+                <a
+                  className="btn btn-ghost"
+                  href={profile.githubProfileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   GitHub
-                </ActionLink>
+                </a>
               </div>
             </div>
 

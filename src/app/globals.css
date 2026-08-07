@@ -354,6 +354,55 @@ p { color: var(--muted); line-height: 1.68; }
 .fact-list, .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
 .disclosure { padding: 12px; border-left: 3px solid var(--cyan); background: #faf7f2; color: var(--muted); font-size: 0.92rem; }
 
+/* --- document-style page hero (Résumé) --- */
+.page-hero-compact { padding: 52px 0 44px; }
+.page-hero-compact h1 {
+  /* 36–56px: the résumé name previously ran to 68px and wrapped awkwardly */
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  line-height: 1.12;
+  max-width: 22ch;
+}
+.page-hero-compact .lead-text p { margin: 10px 0 0; font-size: 1.02rem; }
+.page-hero-compact .hero-subline {
+  margin-top: 4px; color: rgba(237, 234, 226, 0.72); font-size: 0.95rem;
+}
+@media (max-width: 1024px) { .page-hero-compact { padding: 40px 0 34px; } }
+@media (max-width: 640px) {
+  .page-hero-compact { padding: 32px 0 28px; }
+  .page-hero-compact h1 { font-size: clamp(2rem, 7.5vw, 2.5rem); }
+}
+
+/* --- back to top --- */
+.back-to-top {
+  position: fixed; right: 20px; bottom: 20px; z-index: 60;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; padding: 0;
+  border: none; border-radius: 50%;
+  background: var(--brand-rust); color: #fff; cursor: pointer;
+  box-shadow: 0 8px 20px rgba(2, 0, 11, 0.24);
+  opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+}
+.back-to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.back-to-top:hover { background: var(--cyan-2); }
+.back-to-top:focus-visible { outline: 3px solid var(--brand-ink); outline-offset: 3px; }
+@media (max-width: 640px) { .back-to-top { right: 14px; bottom: 14px; } }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* --- compact contact card --- */
+.contact-card-compact {
+  padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--paper);
+}
+.contact-card-compact h2 { margin: 0 0 6px; font-size: 1.2rem; }
+.contact-card-compact p { margin: 0 0 14px; }
+.contact-card-compact .action-row { gap: 10px; margin: 0; }
+.contact-card-compact .btn { min-height: 44px; padding: 0 16px; }
+
 /* --- compact hero support --- */
 @media (max-width: 1024px) {
   .hero { padding: 60px 0 54px; }

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ActionLink } from "@/components/Actions";
+import { CopyEmail } from "@/components/CopyEmail";
 import { ProjectCard } from "@/components/ProjectCard";
 import {
   projects,
@@ -211,34 +211,41 @@ export default function Home() {
       </section>
 
       <section className="section" id="contact">
-        <div className="container narrow contact-band">
-          <p className="eyebrow">Contact</p>
-          <h2>Let&apos;s build better project decisions.</h2>
-          <p>
-            Open to construction project/program management, project controls,
-            construction analytics, and consulting opportunities.
-          </p>
-          <p className="muted-note">
-            Based in Lehi, Utah, with interest in Utah-based and remote professional
-            opportunities.
-          </p>
-          <p className="contact-email">
-            <a href={`mailto:${profile.publicEmail}`}>{profile.publicEmail}</a>
-          </p>
-          <div className="action-row">
-            <ActionLink href={`mailto:${profile.publicEmail}`} variant="primary">
-              Email Narciso
-            </ActionLink>
-            <ActionLink href={profile.linkedinUrl} variant="secondary" external>
-              LinkedIn
-            </ActionLink>
-            <ActionLink href={profile.githubProfileUrl} variant="ghost" external>
-              GitHub
-            </ActionLink>
+        <div className="container narrow">
+          <div className="contact-card-compact">
+            <p className="eyebrow">Contact</p>
+            <h2>Let&apos;s build better project decisions.</h2>
+            <p>
+              Open to construction project/program management, project controls,
+              construction analytics, and consulting opportunities. Based in Lehi, Utah,
+              with interest in Utah-based and remote roles.
+            </p>
+            <p className="contact-email">
+              <a href={`mailto:${profile.publicEmail}`}>{profile.publicEmail}</a>
+            </p>
+            <div className="action-row">
+              <a className="btn btn-primary" href={`mailto:${profile.publicEmail}`}>
+                Email Narciso
+              </a>
+              <CopyEmail email={profile.publicEmail} />
+              <a
+                className="btn btn-ghost"
+                href={profile.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+              <a
+                className="btn btn-ghost"
+                href={profile.githubProfileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+            </div>
           </div>
-          <p className="muted-note">
-            Prefer the detail first? <Link href="/projects">Review the case studies</Link>.
-          </p>
         </div>
       </section>
     </>

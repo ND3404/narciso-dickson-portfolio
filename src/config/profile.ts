@@ -70,8 +70,8 @@ export const positioning =
 
 /** Expanded form for About and Résumé. Deliberately not identical to the above. */
 export const positioningLong = [
-  "Narciso M. Dickson, MS, PMP®, is a construction project/program management and project-controls professional with 15+ years of experience leading construction, design, and consulting work. His background includes multimillion-dollar portfolios, concurrent projects, multidisciplinary teams, budgets, schedules, procurement, contracts, risk, quality, change control, and stakeholder governance.",
-  "As the founder of In Project LLC, he combines that construction leadership foundation with Excel, Power BI, SQL, Python, construction analytics, predictive modeling, and responsible AI governance to improve project visibility and support timely, evidence-based decisions.",
+  "Narciso M. Dickson, MS, PMP®, is a construction project/program management and project-controls professional with 15+ years of experience leading construction, design, and consulting work. His experience spans multimillion-dollar portfolios, concurrent projects, multidisciplinary teams, budgets, schedules, procurement, contracts, risk, quality, change control, and stakeholder governance.",
+  "As Founder of In Project LLC, he combines construction project-management experience with project controls and data analytics to improve visibility, decision-making, and project performance. His recent portfolio includes project-controls analytics, RFI and change-order workflow analytics, and predictive cost-overrun and schedule-delay modeling using Excel, SQL, Python, Power BI, Tableau, and responsible machine-learning methods.",
 ] as const;
 
 /** Verified credibility markers. Not client results — do not present as outcomes. */
