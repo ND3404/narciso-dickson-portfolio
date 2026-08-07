@@ -195,22 +195,22 @@ p { color: var(--muted); line-height: 1.68; }
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 92px 0 82px;
+  padding: 88px 0 80px;
   color: #fff;
   background:
-    radial-gradient(900px 420px at 78% 18%, rgba(160, 71, 50,0.22), transparent 62%),
-    radial-gradient(700px 340px at 12% 12%, rgba(83, 97, 109,0.22), transparent 58%),
+    radial-gradient(760px 320px at 82% 14%, rgba(160, 71, 50, 0.18), transparent 62%),
     var(--navy);
 }
 
-.hero::after, .page-hero::after {
+/* Blueprint grid stays on the hero only; across whole pages it reads as noise. */
+.hero::after {
   content: "";
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
   pointer-events: none;
 }
 
@@ -218,9 +218,9 @@ p { color: var(--muted); line-height: 1.68; }
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.85fr);
-  gap: 52px;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  align-items: start;
 }
 
 .eyebrow {
@@ -235,12 +235,14 @@ p { color: var(--muted); line-height: 1.68; }
 .hero h1, .page-hero h1 {
   margin: 0;
   color: #fff;
-  font-size: clamp(2.6rem, 5.2vw, 5rem);
-  max-width: 850px;
+  /* capped at 68px: the previous 5rem headline filled a laptop screen on its own */
+  font-size: clamp(2.7rem, 5vw, 4.25rem);
+  line-height: 1.08;
+  max-width: 20ch;
 }
 
 .hero-copy p {
-  max-width: 700px;
+  max-width: 68ch;
   color: rgba(255, 255, 255, 0.78);
   font-size: 1.2rem;
 }
@@ -325,14 +327,15 @@ p { color: var(--muted); line-height: 1.68; }
 .signal-panel div { padding: 13px; border-left: 3px solid var(--cyan); border-radius: 7px; background: var(--bg); }
 .signal-panel strong { display: block; color: var(--navy); }
 
-.section { padding: 82px 0; }
+.section { padding: 64px 0; }
 .section-white { background: #fff; }
 .section-dark { color: #fff; background: var(--navy); }
 .section-dark h2, .section-dark h3 { color: #fff; }
 .section-dark p { color: rgba(255, 255, 255, 0.74); }
 
-.section-heading { max-width: 760px; margin-bottom: 34px; }
-.section-heading h2 { margin: 0; font-size: clamp(2rem, 3.4vw, 3.1rem); }
+.section-heading { max-width: 70ch; margin-bottom: 28px; }
+.section-heading h2 { margin: 0; font-size: clamp(1.75rem, 2.6vw, 2.5rem); }
+.section-heading p, .lead-text p, .detail-main p { max-width: 72ch; }
 .section-heading p, .lead-text p { font-size: 1.12rem; }
 
 .card-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
@@ -350,6 +353,52 @@ p { color: var(--muted); line-height: 1.68; }
 
 .fact-list, .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
 .disclosure { padding: 12px; border-left: 3px solid var(--cyan); background: #faf7f2; color: var(--muted); font-size: 0.92rem; }
+
+/* --- compact hero support --- */
+@media (max-width: 1024px) {
+  .hero { padding: 60px 0 54px; }
+  .section { padding: 52px 0; }
+}
+
+.trust-strip {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0 18px;
+  margin-top: 26px; padding-top: 20px;
+  border-top: 1px solid rgba(237, 234, 226, 0.18);
+  color: rgba(237, 234, 226, 0.82); font-size: 0.94rem; font-weight: 700;
+}
+.trust-strip span:not(:last-child)::after { content: "|"; margin-left: 18px; color: var(--brand-rust); }
+
+.util-links { display: flex; align-items: center; gap: 14px; }
+.util-links a { color: var(--muted); font-size: 0.88rem; font-weight: 700; }
+.util-links a:hover, .util-links a:focus-visible { color: var(--brand-rust); }
+
+/* --- experience --- */
+.exp-list { display: grid; gap: 14px; }
+.exp-item { padding: 22px 24px; border: 1px solid var(--line); border-left: 4px solid var(--brand-rust); border-radius: var(--radius); background: var(--paper); }
+.exp-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px; }
+.exp-item h3 { margin: 0; font-size: 1.14rem; }
+.exp-period { color: var(--brand-rust); font-weight: 800; font-size: 0.86rem; letter-spacing: 0.03em; text-transform: uppercase; }
+.exp-org { margin: 2px 0 10px; color: var(--muted); font-size: 0.95rem; }
+.exp-item ul { margin: 0; padding-left: 18px; }
+.exp-item li { margin-bottom: 5px; }
+
+/* --- about preview --- */
+.about-split { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: 36px; align-items: start; }
+.headshot { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border: 1px solid var(--line); border-radius: var(--radius); }
+@media (max-width: 820px) { .about-split { grid-template-columns: 1fr; } .headshot { max-width: 280px; } }
+
+/* --- certifications --- */
+.cert-list { display: grid; gap: 8px; }
+.cert-list li { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: baseline; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); list-style: none; }
+.cert-list strong { color: var(--navy); }
+.cert-list span { color: var(--muted); font-size: 0.9rem; }
+.plain-list { margin: 0; padding: 0; }
+
+/* --- founder + contact --- */
+.founder-grid { display: grid; grid-template-columns: minmax(0, 240px) minmax(0, 1fr); gap: 32px; align-items: center; }
+@media (max-width: 820px) { .founder-grid { grid-template-columns: 1fr; } }
+.contact-band { display: grid; gap: 16px; }
+.contact-email { font-family: var(--font-display), Georgia, serif; font-size: clamp(1.15rem, 2.2vw, 1.5rem); color: var(--brand-rust); font-weight: 700; word-break: break-word; }
 
 /* --- home page --- */
 .hero-sublink { margin-top: 18px; }
@@ -553,9 +602,9 @@ p { color: var(--muted); line-height: 1.68; }
   .container, .narrow { width: min(100% - 32px, 1180px); }
   .wordmark { min-width: 0; }
   .wordmark small { display: none; }
-  .hero { padding: 70px 0 58px; }
-  .hero h1, .page-hero h1 { font-size: clamp(2.25rem, 13vw, 3.2rem); }
-  .section { padding: 58px 0; }
+  .hero { padding: 44px 0 40px; }
+  .hero h1, .page-hero h1 { font-size: clamp(1.95rem, 8.4vw, 2.5rem); }
+  .section { padding: 44px 0; }
   .card-grid, .project-grid, .two-col, .phase-grid, .footer-grid { grid-template-columns: 1fr; }
 }
 

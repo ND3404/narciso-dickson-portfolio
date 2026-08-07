@@ -63,15 +63,12 @@ export function Footer() {
               </a>
             </li>
             <li>{profile.location}</li>
-            <li>
-              <Link href="/contact">Contact page</Link>
-            </li>
           </ul>
         </div>
       </div>
       <div className="container footer-bottom">
         <span>Copyright 2026 Narciso M. Dickson. All rights reserved.</span>
-        <span>Built with Next.js, TypeScript, and Tailwind CSS.</span>
+        <span>All case-study data is synthetic.</span>
       </div>
     </footer>
   );

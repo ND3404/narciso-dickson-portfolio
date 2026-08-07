@@ -15,6 +15,17 @@ const nextConfig: NextConfig = {
         destination: "/projects/predictive-construction-project-overrun-model",
         permanent: true,
       },
+      // Expertise folded into About; Contact became a home-page section.
+      {
+        source: "/expertise",
+        destination: "/about#capabilities",
+        permanent: true,
+      },
+      {
+        source: "/contact",
+        destination: "/#contact",
+        permanent: true,
+      },
     ];
   },
 };
