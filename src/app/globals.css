@@ -195,7 +195,7 @@ p { color: var(--muted); line-height: 1.68; }
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 88px 0 80px;
+  padding: 76px 0 64px;
   color: #fff;
   background:
     radial-gradient(760px 320px at 82% 14%, rgba(160, 71, 50, 0.18), transparent 62%),
@@ -362,7 +362,7 @@ p { color: var(--muted); line-height: 1.68; }
 
 .trust-strip {
   display: flex; flex-wrap: wrap; align-items: center; gap: 0 18px;
-  margin-top: 26px; padding-top: 20px;
+  margin-top: 20px; padding-top: 16px;
   border-top: 1px solid rgba(237, 234, 226, 0.18);
   color: rgba(237, 234, 226, 0.82); font-size: 0.94rem; font-weight: 700;
 }
