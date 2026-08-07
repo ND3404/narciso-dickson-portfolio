@@ -134,7 +134,7 @@ p { color: var(--muted); line-height: 1.68; }
 }
 
 .desktop-nav a {
-  min-height: 38px;
+  min-height: 44px;   /* the desktop nav is still used on touch tablets */
   display: inline-flex;
   align-items: center;
   padding: 0 11px;

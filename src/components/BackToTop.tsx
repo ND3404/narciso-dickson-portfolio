@@ -12,10 +12,10 @@ export function BackToTop() {
     const node = sentinel.current;
     if (!node) return;
 
-    // Both html and body carry `overflow: clip`, so no scrollport dispatches
-    // scroll events on this site — a scroll listener never fires even though
-    // documentElement.scrollTop updates. IntersectionObserver reports the
-    // sentinel leaving the viewport regardless of how the page scrolls.
+    // IntersectionObserver rather than a scroll listener: `html` carries
+    // `overflow-x: clip`, which makes it a scroll container, and observing a
+    // sentinel is independent of which element actually scrolls. It also avoids
+    // running a handler on every scroll frame.
     if (typeof IntersectionObserver !== "undefined") {
       const io = new IntersectionObserver(
         ([entry]) => setVisible(!entry.isIntersecting),
@@ -38,7 +38,7 @@ export function BackToTop() {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const behavior: ScrollBehavior = reduced ? "auto" : "smooth";
     window.scrollTo({ top: 0, behavior });
-    // Belt and braces for the same overflow quirk noted above.
+    // `html` is the scroll container here, so target it as well.
     document.documentElement.scrollTo?.({ top: 0, behavior });
     document.getElementById("main")?.focus?.();
   }
