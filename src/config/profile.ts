@@ -32,7 +32,12 @@ export const profile = {
   publicEmail: "ndickson@inprojectmanagement.com",
   inProjectUrl: "https://www.inprojectmanagement.com/",
   inProjectAiUrl: "https://agents.inprojectmanagement.com/",
-  portfolioCanonicalUrl: "https://narciso-dickson-portfolio.vercel.app",
+  /**
+   * Custom domain, canonical since 2026-08-08. The vercel.app URL still serves
+   * the same deployment, so old links keep working; this value decides which
+   * host search engines and structured data treat as authoritative.
+   */
+  portfolioCanonicalUrl: "https://narcisodickson.com",
 
   /** One canonical résumé download, derived from the PM/Data/Web source. */
   resumeUrl: "/resume/Narciso_M_Dickson_Resume.pdf",

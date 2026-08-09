@@ -32,7 +32,7 @@ Built and published a professional portfolio website with Next.js, TypeScript, a
 
 # Email-signature portfolio text
 
-Portfolio: Construction project leadership, analytics, and AI - https://narciso-dickson-portfolio.vercel.app
+Portfolio: Construction project leadership, analytics, and AI - https://narcisodickson.com
 
 # Short professional bio
 
