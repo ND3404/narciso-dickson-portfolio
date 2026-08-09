@@ -106,6 +106,49 @@ export function ProjectDetail({ slug }: { slug: string }) {
               <p>{project.problem}</p>
             </div>
 
+            {/* Dashboard summary: the headline numbers, the graphic, and what
+                the analysis concluded — before any of the method detail. */}
+            <section className="detail-section project-dashboard">
+              <div className="dash-head">
+                <h2>Dashboard</h2>
+                <span className="mini-label">{project.scale}</span>
+              </div>
+              <div className="kpi-row">
+                {project.kpis.map(([value, label]) => (
+                  <div className="kpi-tile" key={label}>
+                    <strong>{value}</strong>
+                    <span>{label}</span>
+                  </div>
+                ))}
+              </div>
+              {narrative?.figures[0] ? (
+                <figure className="dash-figure">
+                  <Image
+                    className="case-image"
+                    src={narrative.figures[0].src}
+                    alt={narrative.figures[0].alt}
+                    width={2400}
+                    height={1425}
+                    sizes="(max-width: 900px) 100vw, 760px"
+                    priority
+                  />
+                  <figcaption>{narrative.figures[0].caption}</figcaption>
+                </figure>
+              ) : null}
+            </section>
+
+            <section className="detail-section">
+              <h2>What the analysis concluded</h2>
+              <div className="findings">
+                {project.conclusions.map((c) => (
+                  <article className="finding" key={c.title}>
+                    <h3>{c.title}</h3>
+                    <p>{c.body}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
             <section className="detail-section">
               <h2>Validated results</h2>
               <p className="muted-note">
@@ -141,7 +184,8 @@ export function ProjectDetail({ slug }: { slug: string }) {
               </section>
             ))}
 
-            {narrative?.figures.map((f) => (
+            {/* figures[0] already appears in the dashboard block above */}
+            {narrative?.figures.slice(1).map((f) => (
               <section className="detail-section" key={f.src}>
                 <h2>{f.caption.split(":")[0]}</h2>
                 <Image

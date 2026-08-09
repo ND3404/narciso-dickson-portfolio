@@ -98,21 +98,21 @@ export const audiencePaths = [
     title: "Recruiters and hiring managers",
     body: "Project leadership, project controls, analytics, and AI-enabled management roles, backed by three complete public case studies.",
     cta: "Review Experience",
-    href: "/resume",
+    href: "/about",
   },
   {
     eyebrow: "Construction and institutional",
     title: "Construction companies and owners",
     body: "Controls, workflow visibility, executive dashboards, risk analysis, and decision support for portfolios under pressure.",
     cta: "Explore Capabilities",
-    href: "/expertise",
+    href: "/about#capabilities",
   },
   {
     eyebrow: "Consulting and partnerships",
     title: "Consulting and partnerships",
     body: "In Project LLC construction analytics, dashboards, reporting workflows, and In Project AI collaboration.",
     cta: "Discuss an Opportunity",
-    href: "/contact",
+    href: "/#contact",
   },
 ] as const;
 
@@ -396,7 +396,6 @@ export type ProjectStatus = "Complete and Public" | "In Development" | "Planned"
 export const projects = [
   {
     slug: "construction-project-controls-analytics",
-    order: 1,
     stage: "Descriptive and early-warning analytics",
     status: "Complete and Public" as ProjectStatus,
     title: "Construction Project Controls Analytics",
@@ -443,10 +442,31 @@ export const projects = [
       ["Contingency burn vs forecast overrun", "Pearson r = 0.901"],
       ["RFI response vs schedule delay", "Pearson r = 0.517"],
     ],
+    /** Headline tiles for the dashboard summary. */
+    kpis: [
+      ["13.0%", "Forecast overrun"],
+      ["0.884", "Weighted CPI"],
+      ["33.7 d", "Average delay"],
+      ["50 / 75", "Projects at Red"],
+    ],
+    /** What the analysis concluded, in decision terms. */
+    conclusions: [
+      {
+        title: "Contingency burn is the earliest reliable warning",
+        body: "It explains 81% of the variance in final overrun and is measurable from month one — well before CPI crosses a reporting threshold. If one number gets watched weekly, this is the one.",
+      },
+      {
+        title: "A healthy schedule index can hide a late project",
+        body: "Weighted SPI sits at 0.987 while the average project still finishes 33.7 days late. SPI converges to 1.0 as work completes regardless of the finish date, so delay has to be tracked in days.",
+      },
+      {
+        title: "How fast RFIs are answered matters; how many there are does not",
+        body: "Response time tracks with schedule delay (r = 0.517) while RFI density does not (r = -0.058). The constraint is turnaround, not volume — which points at process, not workload.",
+      },
+    ],
   },
   {
     slug: "construction-change-order-rfi-analytics",
-    order: 2,
     stage: "Diagnostic workflow analytics",
     status: "Complete and Public" as ProjectStatus,
     title: "Construction Change Order and RFI Analytics",
@@ -503,10 +523,29 @@ export const projects = [
       ["Project workflow health", "29 Red / 48 Yellow / 13 Green"],
       ["RFI response vs approval cycle", "Pearson r = 0.817"],
     ],
+    kpis: [
+      ["12.21 d", "Avg RFI response"],
+      ["45.7%", "RFI on-time rate"],
+      ["$204.57M", "Approved change value"],
+      ["29 / 90", "Projects at Red"],
+    ],
+    conclusions: [
+      {
+        title: "RFI response and change approval are one system, not two",
+        body: "Projects slow at answering RFIs are the same projects slow at approving changes (r = 0.817, the strongest tested relationship). Fixing them separately treats one problem twice.",
+      },
+      {
+        title: "Rework, not review, is where the time goes",
+        body: "Change orders returned for revision account for the largest single block of accumulated stage time. The delay is not careful review — it is the same document going round again.",
+      },
+      {
+        title: "Owner decision speed sets the pace of everything downstream",
+        body: "Slow-decision projects average 16.45 response days and 26.3% on-time, against 10.4 days and 52.8% where decisions are fast. The owner's cadence, not the contractor's, is the binding constraint.",
+      },
+    ],
   },
   {
     slug: "predictive-construction-project-overrun-model",
-    order: 3,
     stage: "Predictive early-warning modeling",
     status: "Complete and Public" as ProjectStatus,
     title: "Predictive Construction Project Overrun Model",
@@ -563,6 +602,26 @@ export const projects = [
       ["Schedule-delay test PR-AUC", "0.524"],
       ["Test risk bands", "188 Red / 138 Yellow / 110 Green"],
     ],
+    kpis: [
+      ["0.899", "Cost ROC-AUC"],
+      ["0.756", "Schedule ROC-AUC"],
+      ["2,362", "Projects modeled"],
+      ["188 / 436", "Flagged Red"],
+    ],
+    conclusions: [
+      {
+        title: "Cost overrun is predictable early; schedule delay is harder",
+        body: "The cost model reaches 0.899 ROC-AUC on a future test year. The schedule model reaches 0.756 and falls further from validation to test — useful for triage, not for commitments.",
+      },
+      {
+        title: "The schedule model degrades over time, and that is reported",
+        body: "Performance drops between the 2024 validation year and the 2025 test year. That decline drives the retraining triggers and drift thresholds rather than being smoothed out of the results.",
+      },
+      {
+        title: "The output is a review queue, not a decision",
+        body: "Each project gets a probability and a Red/Yellow/Green band so scarce review time goes where risk is concentrated. A qualified professional confirms or overrides every one; production use is not authorized.",
+      },
+    ],
   },
 ] as const;
 
@@ -574,12 +633,14 @@ export const legacyProjectSlugs: Record<string, string> = {
   "predictive-project-overrun-model": "predictive-construction-project-overrun-model",
 };
 
-/** Main navigation. Expertise folded into About; Contact is a home-page section. */
+/**
+ * Main navigation. Expertise and Résumé are folded into About; Contact is a
+ * home-page section. Portfolio is the public name for the case-study work.
+ */
 export const siteNav = [
   { label: "Home", href: "/" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "About", href: "/about" },
-  { label: "Projects", href: "/projects" },
-  { label: "Résumé", href: "/resume" },
 ];
 
 export const unresolvedPlaceholders = [
