@@ -68,7 +68,7 @@ export function Footer() {
       </div>
       <div className="container footer-bottom">
         <span>Copyright 2026 Narciso M. Dickson. All rights reserved.</span>
-        <span>All case-study data is synthetic.</span>
+        <span>{profile.location}</span>
       </div>
     </footer>
   );

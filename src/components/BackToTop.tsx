@@ -37,10 +37,20 @@ export function BackToTop() {
     // Honour the OS setting rather than forcing an animated scroll.
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const behavior: ScrollBehavior = reduced ? "auto" : "smooth";
-    window.scrollTo({ top: 0, behavior });
-    // `html` is the scroll container here, so target it as well.
-    document.documentElement.scrollTo?.({ top: 0, behavior });
-    document.getElementById("main")?.focus?.();
+
+    // One scroll call only. Issuing both window.scrollTo and
+    // documentElement.scrollTo starts two competing animations.
+    const scroller = document.scrollingElement ?? document.documentElement;
+    if (scroller.scrollTo) {
+      scroller.scrollTo({ top: 0, behavior });
+    } else {
+      window.scrollTo(0, 0);
+    }
+
+    // focus() scrolls its target into view by default, which cancelled the
+    // animation above and left the page part-way up. Move focus without moving
+    // the viewport.
+    document.getElementById("main")?.focus({ preventScroll: true });
   }
 
   return (

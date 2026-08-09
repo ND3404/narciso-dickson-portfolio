@@ -393,9 +393,16 @@ export const expertiseAreas = [
 
 export type ProjectStatus = "Complete and Public" | "In Development" | "Planned";
 
+/**
+ * Where a case study's data comes from. Only "synthetic" carries a disclosure,
+ * so future work using real data does not inherit a claim that is untrue of it.
+ */
+export type DataType = "synthetic" | "real";
+
 export const projects = [
   {
     slug: "construction-project-controls-analytics",
+    dataType: "synthetic" as DataType,
     stage: "Descriptive and early-warning analytics",
     status: "Complete and Public" as ProjectStatus,
     title: "Construction Project Controls Analytics",
@@ -467,6 +474,7 @@ export const projects = [
   },
   {
     slug: "construction-change-order-rfi-analytics",
+    dataType: "synthetic" as DataType,
     stage: "Diagnostic workflow analytics",
     status: "Complete and Public" as ProjectStatus,
     title: "Construction Change Order and RFI Analytics",
@@ -546,6 +554,7 @@ export const projects = [
   },
   {
     slug: "predictive-construction-project-overrun-model",
+    dataType: "synthetic" as DataType,
     stage: "Predictive early-warning modeling",
     status: "Complete and Public" as ProjectStatus,
     title: "Predictive Construction Project Overrun Model",

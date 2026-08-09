@@ -191,17 +191,6 @@ export default function AboutPage() {
       <section className="section section-white">
         <div className="container stack-grid stack-grid-2">
           <div>
-            <h2>Certifications</h2>
-            <ul className="cert-list plain-list">
-              {certifications.map((item) => (
-                <li key={item.name}>
-                  <strong>{item.name}</strong>
-                  <span>{item.org}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
             <h2>Education</h2>
             <ul className="cert-list plain-list">
               {education.map((item) => (
@@ -217,6 +206,17 @@ export default function AboutPage() {
             <p className="sidebar-note">
               {profile.languages.join(" and ")}, professional working proficiency.
             </p>
+          </div>
+          <div>
+            <h2>Certifications</h2>
+            <ul className="cert-list plain-list">
+              {certifications.map((item) => (
+                <li key={item.name}>
+                  <strong>{item.name}</strong>
+                  <span>{item.org}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

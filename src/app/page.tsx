@@ -107,7 +107,7 @@ export default function Home() {
             <h2>Construction analytics, from measurement to prediction.</h2>
             <p>
               Each case study publishes its data, SQL, Python, dashboards and full report
-              on GitHub. Every dataset is synthetic.
+              on GitHub.
             </p>
           </div>
           <div className="project-grid">

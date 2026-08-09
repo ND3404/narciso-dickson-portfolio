@@ -212,10 +212,12 @@ export function ProjectDetail({ slug }: { slug: string }) {
               </section>
             )}
 
-            <section className="detail-section">
-              <h2>Synthetic-data disclosure</h2>
-              <p className="disclosure">{project.disclosure}</p>
-            </section>
+            {project.dataType === "synthetic" ? (
+              <section className="detail-section">
+                <h2>Synthetic-data disclosure</h2>
+                <p className="disclosure">{project.disclosure}</p>
+              </section>
+            ) : null}
           </article>
 
           <aside className="detail-sidebar">

@@ -28,7 +28,9 @@ export function ProjectCard({ project }: { project: Project }) {
       </a>
       <div className="card-topline">
         <StatusBadge status={project.status} />
-        <span className="mini-label">Synthetic data</span>
+        {project.dataType === "synthetic" ? (
+          <span className="mini-label">Synthetic data</span>
+        ) : null}
       </div>
       <h3>{project.title}</h3>
       <p className="subtitle">{project.subtitle}</p>
@@ -40,7 +42,9 @@ export function ProjectCard({ project }: { project: Project }) {
           <span key={fact}>{fact}</span>
         ))}
       </div>
-      <p className="disclosure">{project.disclosure}</p>
+      {project.dataType === "synthetic" ? (
+        <p className="disclosure">{project.disclosure}</p>
+      ) : null}
       <div className="action-row">
         <ActionLink href={project.detailHref} variant="dark">
           View Case Study
