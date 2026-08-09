@@ -2,13 +2,7 @@ import Image from "next/image";
 import { ActionLink } from "@/components/Actions";
 import { CopyEmail } from "@/components/CopyEmail";
 import { ProjectCard } from "@/components/ProjectCard";
-import {
-  projects,
-  profile,
-  positioning,
-  timeline,
-  certifications,
-} from "@/config/profile";
+import { projects, profile, positioning, timeline } from "@/config/profile";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -46,10 +40,10 @@ export default function Home() {
               prioritize risk, and support better project decisions.
             </p>
             <div className="hero-actions">
-              <ActionLink href="/projects" variant="primary">
-                View Projects
+              <ActionLink href="/portfolio" variant="primary">
+                View Portfolio
               </ActionLink>
-              <ActionLink href="/resume" variant="secondary">
+              <ActionLink href="/about" variant="secondary">
                 View Résumé
               </ActionLink>
               <ActionLink href={profile.linkedinUrl} variant="ghost" external>
@@ -99,28 +93,32 @@ export default function Home() {
             </article>
           </div>
           <div className="section-actions">
-            <ActionLink href="/resume" variant="secondary">
+            <ActionLink href="/about" variant="secondary">
               Full Résumé
             </ActionLink>
           </div>
         </div>
       </section>
 
-      <section className="section section-white" id="projects">
+      <section className="section section-white" id="portfolio">
         <div className="container">
           <div className="section-heading">
-            <p className="eyebrow">Construction analytics portfolio</p>
-            <h2>Three complete case studies, from project controls to prediction.</h2>
+            <p className="eyebrow">Portfolio</p>
+            <h2>Construction analytics, from measurement to prediction.</h2>
             <p>
-              Each project ran the full Ask, Prepare, Process, Analyze, Share and Act
-              lifecycle and publishes its data, SQL, Python, dashboards and report on
-              GitHub. All datasets are synthetic.
+              Each case study publishes its data, SQL, Python, dashboards and full report
+              on GitHub. Every dataset is synthetic.
             </p>
           </div>
           <div className="project-grid">
             {projects.map((project) => (
               <ProjectCard project={project} key={project.slug} />
             ))}
+          </div>
+          <div className="section-actions">
+            <ActionLink href="/portfolio" variant="secondary">
+              See the full Portfolio
+            </ActionLink>
           </div>
         </div>
       </section>
@@ -155,23 +153,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="section section-white" id="certifications">
-        <div className="container">
-          <div className="section-heading">
-            <p className="eyebrow">Certifications</p>
-            <h2>Credentials.</h2>
-          </div>
-          <ul className="cert-list plain-list">
-            {certifications.map((cert) => (
-              <li key={cert.name}>
-                <strong>{cert.name}</strong>
-                <span>{cert.org}</span>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 

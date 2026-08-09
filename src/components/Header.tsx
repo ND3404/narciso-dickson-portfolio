@@ -17,10 +17,7 @@ export function Header() {
       </a>
       <div className="container header-inner">
         <Link className="wordmark" href="/" onClick={() => setOpen(false)}>
-          <span>
-            {profile.fullName}
-            <em>{profile.credentials}</em>
-          </span>
+          <span>{profile.fullName}</span>
           <small>{profile.shortDescriptor}</small>
         </Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
@@ -46,8 +43,8 @@ export function Header() {
               GitHub
             </a>
           </span>
-          <ActionLink href="/projects" variant="primary">
-            View Projects
+          <ActionLink href="/portfolio" variant="primary">
+            View Portfolio
           </ActionLink>
           <button
             className="menu-button"

@@ -15,7 +15,8 @@ const nextConfig: NextConfig = {
         destination: "/projects/predictive-construction-project-overrun-model",
         permanent: true,
       },
-      // Expertise folded into About; Contact became a home-page section.
+      // Expertise and Résumé folded into About; Contact became a home-page
+      // section; the case-study index is now called Portfolio.
       {
         source: "/expertise",
         destination: "/about#capabilities",
@@ -24,6 +25,16 @@ const nextConfig: NextConfig = {
       {
         source: "/contact",
         destination: "/#contact",
+        permanent: true,
+      },
+      {
+        source: "/resume",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/projects",
+        destination: "/portfolio",
         permanent: true,
       },
     ];
