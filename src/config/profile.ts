@@ -3,9 +3,10 @@
  *
  * Consolidated from three résumé sources into ONE public profile. Rules applied:
  *  - 15+ years used consistently (sources said both 10+ and 15+)
- *  - PUBLINTER shown as 2011–2021 (sources disagreed: Dec 2021 vs May 2022;
- *    the later date also overlapped the In Project LLC start, so the earlier,
- *    non-contradictory date is used)
+ *  - PUBLINTER shown as 2011–2022, matching the live LinkedIn profile: one
+ *    11-year tenure covering two roles, Project Manager (2011–2016) then
+ *    Senior Program Manager (2016–2022). Earlier résumé sources disagreed
+ *    (Dec 2021 vs May 2022); LinkedIn is authoritative and says Jan 2022.
  *  - Each metric appears once, in its most persuasive context
  *  - No credential IDs, phone number, street address or ZIP anywhere public
  *  - Location limited to Lehi, Utah, United States
@@ -146,8 +147,8 @@ export const timeline = [
     ],
   },
   {
-    period: "2011 – 2021",
-    role: "Project/Program Manager",
+    period: "2011 – 2022",
+    role: "Senior Program Manager · Project Manager",
     org: "PUBLINTER, Arq. y Sup. SRL — Santiago, Dominican Republic",
     kind: "Residential, commercial, and renovation portfolios",
     summary:
