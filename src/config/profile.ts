@@ -133,7 +133,9 @@ export const timeline = [
     summary:
       "Leads construction project planning and controls across multiple concurrent assignments while building the analytics and decision-support practice behind In Project.",
     points: [
-      "Direct full construction project lifecycles for residential, commercial, and renovation projects, integrating scope, budget, schedule, procurement, risk, change management, reporting, and closeout",
+      // "Control", not "Direct": matches LinkedIn and both résumés, and is the
+      // verb he uses for the work itself.
+      "Control full construction project lifecycles for residential, commercial, and renovation projects, integrating scope, budget, schedule, procurement, risk, change management, reporting, and closeout",
       "Develop project-control frameworks, KPI reporting, risk registers, change-control workflows, and owner-ready dashboards to improve visibility and accountability",
       "Build Excel and Power BI dashboards for cost, schedule, risk, change orders, RFIs, and executive project reporting",
       "Coordinate stakeholders, vendors, consultants, and project teams while supporting procurement, contract negotiations, invoices, changes, and project governance",
