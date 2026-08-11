@@ -287,6 +287,7 @@ export const capabilities = [
   {
     title: "Project and Program Leadership",
     items: [
+      "Residential, commercial, and renovation delivery",
       "Project lifecycle and governance",
       "Scope, schedule, budget, risk, quality, and stakeholder management",
       "Agile, Waterfall, and Hybrid delivery",
