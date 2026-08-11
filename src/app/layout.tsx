@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     "@type": "Person",
     name: profile.fullName,
     honorificSuffix: profile.credentials,
-    jobTitle: "Founder & Construction Project Management Consultant",
+    jobTitle: "Founder & Senior Construction Project Manager",
     description: positioningLong.join(" "),
     url: profile.portfolioCanonicalUrl,
     email: `mailto:${profile.publicEmail}`,

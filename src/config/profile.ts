@@ -71,11 +71,11 @@ export const isPending = (value: string) => value.startsWith("TODO_");
 
 /** Short form for the home page. */
 export const positioning =
-  "Narciso M. Dickson, MS, PMP®, is a construction project/program management and project-controls professional with 15+ years leading construction, design, and consulting work. As the founder of In Project LLC, he combines that construction leadership foundation with Excel, Power BI, SQL, Python, construction analytics, predictive modeling, and responsible AI governance to improve project visibility and support timely, evidence-based decisions.";
+  "Narciso M. Dickson, MS, PMP®, is a construction project and program manager with 15+ years delivering residential, commercial, and renovation projects across multimillion-dollar portfolios. As the founder of In Project LLC, he combines that construction leadership foundation with Excel, Power BI, SQL, Python, construction analytics, predictive modeling, and responsible AI governance to improve project visibility and support timely, evidence-based decisions.";
 
 /** Expanded form for About and Résumé. Deliberately not identical to the above. */
 export const positioningLong = [
-  "Narciso M. Dickson, MS, PMP®, is a construction project/program management and project-controls professional with 15+ years of experience leading construction, design, and consulting work. His experience spans multimillion-dollar portfolios, concurrent projects, multidisciplinary teams, budgets, schedules, procurement, contracts, risk, quality, change control, and stakeholder governance.",
+  "Narciso M. Dickson, MS, PMP®, is a construction project and program manager with 15+ years delivering residential, commercial, and renovation projects across multimillion-dollar portfolios. His experience spans the full lifecycle: preconstruction planning, budgets, schedules, procurement, contracts, change orders, RFIs, risk, quality, and closeout, leading multidisciplinary teams and reporting to owners and executive stakeholders.",
   "As Founder of In Project LLC, he combines construction project-management experience with project controls and data analytics to improve visibility, decision-making, and project performance. His recent portfolio includes project-controls analytics, RFI and change-order workflow analytics, and predictive cost-overrun and schedule-delay modeling using Excel, SQL, Python, Power BI, Tableau, and responsible machine-learning methods.",
 ] as const;
 
@@ -126,13 +126,13 @@ export const audiencePaths = [
 export const timeline = [
   {
     period: "January 2022 – Present",
-    role: "Founder & Construction Project Management Consultant",
+    role: "Founder & Senior Construction Project Manager",
     org: "In Project LLC — Lehi, Utah",
     kind: "Construction Project Controls · Analytics · Digital Solutions",
     summary:
       "Leads construction project planning and controls across multiple concurrent assignments while building the analytics and decision-support practice behind In Project.",
     points: [
-      "Lead construction project planning and controls across multiple concurrent assignments, integrating scope, budget, schedule, procurement, risk, change management, reporting, and closeout",
+      "Direct full construction project lifecycles for residential, commercial, and renovation projects, integrating scope, budget, schedule, procurement, risk, change management, reporting, and closeout",
       "Develop project-control frameworks, KPI reporting, risk registers, change-control workflows, and owner-ready dashboards to improve visibility and accountability",
       "Build Excel and Power BI dashboards for cost, schedule, risk, change orders, RFIs, and executive project reporting",
       "Coordinate stakeholders, vendors, consultants, and project teams while supporting procurement, contract negotiations, invoices, changes, and project governance",
@@ -149,11 +149,11 @@ export const timeline = [
     period: "2011 – 2021",
     role: "Project/Program Manager",
     org: "PUBLINTER, Arq. y Sup. SRL — Santiago, Dominican Republic",
-    kind: "Construction and design portfolios",
+    kind: "Residential, commercial, and renovation portfolios",
     summary:
       "Led multidisciplinary construction and design delivery across a large annual project load.",
     points: [
-      "Managed construction and design portfolios exceeding $30 million",
+      "Managed a $30M+ portfolio of residential, commercial, and renovation construction and design projects",
       "Coordinated 15+ multidisciplinary teams across 20+ annual projects",
       "Improved preparation efficiency by 25% through standardized frameworks and scheduling",
       "Increased stakeholder satisfaction by 30% through clear reporting and progress tracking",
