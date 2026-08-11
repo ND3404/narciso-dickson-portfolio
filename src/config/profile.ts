@@ -155,6 +155,7 @@ export const timeline = [
     points: [
       "Managed a $30M+ portfolio of residential, commercial, and renovation construction and design projects",
       "Coordinated 15+ multidisciplinary teams across 20+ annual projects",
+      "Directed procurement and negotiated contractor agreements, reducing project expenses by 25%",
       "Improved preparation efficiency by 25% through standardized frameworks and scheduling",
       "Increased stakeholder satisfaction by 30% through clear reporting and progress tracking",
       "Applied Agile, Waterfall, and Hybrid delivery to match project complexity",
