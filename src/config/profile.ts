@@ -135,7 +135,8 @@ export const timeline = [
     points: [
       // "Control", not "Direct": matches LinkedIn and both résumés, and is the
       // verb he uses for the work itself.
-      "Control residential, commercial, and renovation construction projects across the full lifecycle, integrating scope, budget, schedule, procurement, risk, change management, reporting, and closeout",
+      "Provide construction project management consulting on a project-controls foundation, giving owners and teams control and clarity across residential, commercial, and renovation projects",
+      "Control the full project lifecycle from concept through closeout, integrating scope, budget, schedule, procurement, contracts, change orders, RFIs, risk, and quality",
       "Develop project-control frameworks, KPI reporting, risk registers, change-control workflows, and owner-ready dashboards to improve visibility and accountability",
       "Build Excel and Power BI dashboards for cost, schedule, risk, change orders, RFIs, and executive project reporting",
       "Coordinate stakeholders, vendors, consultants, and project teams while supporting procurement, contract negotiations, invoices, changes, and project governance",
