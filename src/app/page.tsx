@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { ActionLink } from "@/components/Actions";
 import { CopyEmail } from "@/components/CopyEmail";
+import { CountUp } from "@/components/CountUp";
 import { ProjectCard } from "@/components/ProjectCard";
+import { Reveal } from "@/components/Reveal";
 import { projects, profile, positioning, timeline } from "@/config/profile";
 import { pageMetadata } from "@/lib/seo";
 
@@ -12,12 +14,15 @@ export const metadata = pageMetadata({
   path: "/",
 });
 
-const TRUST = [
-  "15+ Years",
-  "PMP®",
-  "MS Project Management",
-  "Founder, In Project LLC",
+/** Career figures, not case-study figures: these are real engagements. */
+const HERO_STATS = [
+  { to: 15, prefix: "", suffix: "+", label: "Years leading projects" },
+  { to: 30, prefix: "$", suffix: "M+", label: "Portfolio managed" },
+  { to: 20, prefix: "", suffix: "+", label: "Projects per year" },
+  { to: 3, prefix: "", suffix: "", label: "Published case studies" },
 ];
+
+const CREDENTIALS = ["PMP®", "MS Project Management", "Founder, In Project LLC"];
 
 export default function Home() {
   const current = timeline[0];
@@ -28,11 +33,15 @@ export default function Home() {
     <>
       <section className="hero">
         <div className="container hero-grid">
-          <div className="hero-copy">
+          <Reveal className="hero-copy">
             <p className="eyebrow">
+              <span className="eyebrow-rule" aria-hidden="true" />
               Construction project leadership · Project controls · Data analytics
             </p>
-            <h1>Construction Project Leadership Informed by Data</h1>
+            <h1>
+              Construction project leadership,{" "}
+              <em>informed by data.</em>
+            </h1>
             <p>
               I combine {profile.experienceYears} years of construction project and
               program leadership with project controls, data analytics, dashboards,
@@ -54,11 +63,34 @@ export default function Home() {
               </ActionLink>
             </div>
             <p className="trust-strip">
-              {TRUST.map((item) => (
+              {CREDENTIALS.map((item) => (
                 <span key={item}>{item}</span>
               ))}
             </p>
-          </div>
+          </Reveal>
+
+          {/* The claim is "informed by data", so the hero shows figures rather
+              than describing them. */}
+          <Reveal className="hero-panel" delay={90}>
+            <div className="hero-panel-head">
+              <span className="hero-panel-dot" aria-hidden="true" />
+              Track record
+            </div>
+            <div className="hero-stats">
+              {HERO_STATS.map((stat) => (
+                <div className="hero-stat" key={stat.label}>
+                  <strong>
+                    <CountUp to={stat.to} prefix={stat.prefix} suffix={stat.suffix} />
+                  </strong>
+                  <span>{stat.label}</span>
+                </div>
+              ))}
+            </div>
+            <a className="hero-panel-link" href="/portfolio">
+              See how the numbers were produced
+              <span aria-hidden="true">→</span>
+            </a>
+          </Reveal>
         </div>
       </section>
 
@@ -111,8 +143,10 @@ export default function Home() {
             </p>
           </div>
           <div className="project-grid">
-            {projects.map((project) => (
-              <ProjectCard project={project} key={project.slug} />
+            {projects.map((project, i) => (
+              <Reveal key={project.slug} delay={i * 90}>
+                <ProjectCard project={project} />
+              </Reveal>
             ))}
           </div>
           <div className="section-actions">

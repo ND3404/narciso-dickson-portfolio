@@ -1,5 +1,6 @@
 import { PageHero } from "@/components/PageHero";
 import { ProjectCard } from "@/components/ProjectCard";
+import { Reveal } from "@/components/Reveal";
 import { projects } from "@/config/profile";
 import { pageMetadata } from "@/lib/seo";
 
@@ -37,8 +38,10 @@ export default function PortfolioPage() {
           </ol>
 
           <div className="project-grid">
-            {projects.map((project) => (
-              <ProjectCard project={project} key={project.slug} />
+            {projects.map((project, i) => (
+              <Reveal key={project.slug} delay={i * 90}>
+                <ProjectCard project={project} />
+              </Reveal>
             ))}
           </div>
 
