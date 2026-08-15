@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Reveal } from "@/components/Reveal";
@@ -14,7 +15,23 @@ export const metadata = pageMetadata({
 export default function PortfolioPage() {
   return (
     <>
-      <PageHero eyebrow="Portfolio" title="Construction analytics, end to end.">
+      <PageHero
+        eyebrow="Portfolio"
+        title="Construction analytics, end to end."
+        aside={
+          <figure className="hero-figure">
+            <Image
+              src="/case-study/p1-executive-dashboard.png"
+              alt="Executive dashboard from the construction project controls analytics case study, showing portfolio cost and schedule performance"
+              width={2400}
+              height={1425}
+              sizes="(max-width: 980px) 100vw, 520px"
+              priority
+            />
+            <figcaption>Executive dashboard · Project Controls Analytics</figcaption>
+          </figure>
+        }
+      >
         <p>
           Each case study starts with a question a project manager actually asks, works
           through the data, and ends with what to do about it. Data, SQL, Python,

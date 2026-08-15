@@ -4,7 +4,7 @@ import { CopyEmail } from "@/components/CopyEmail";
 import { CountUp } from "@/components/CountUp";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Reveal } from "@/components/Reveal";
-import { projects, profile, positioning, timeline } from "@/config/profile";
+import { projects, profile, positioning, timeline, focusAreas } from "@/config/profile";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -36,7 +36,7 @@ export default function Home() {
           <Reveal className="hero-copy">
             <p className="eyebrow">
               <span className="eyebrow-rule" aria-hidden="true" />
-              Construction project leadership · Project controls · Data analytics
+              {focusAreas.join(" · ")}
             </p>
             <h1>
               Construction project leadership,{" "}
@@ -225,42 +225,80 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Contact as labelled channels rather than a row of equal-weight buttons:
+          each line says what it is, where it goes, and what happens on click. */}
       <section className="section" id="contact">
-        <div className="container narrow">
-          <div className="contact-card-compact">
-            <p className="eyebrow">Contact</p>
-            <h2>Let&apos;s build better project decisions.</h2>
-            <p>
-              Open to construction project/program management, project controls,
-              construction analytics, and consulting opportunities. Based in Lehi, Utah,
-              with interest in Utah-based and remote roles.
-            </p>
-            <p className="contact-email">
-              <a href={`mailto:${profile.publicEmail}`}>{profile.publicEmail}</a>
-            </p>
-            <div className="action-row">
-              <a className="btn btn-primary" href={`mailto:${profile.publicEmail}`}>
-                Email Narciso
-              </a>
-              <CopyEmail email={profile.publicEmail} />
-              <a
-                className="btn btn-ghost"
-                href={profile.linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LinkedIn
-              </a>
-              <a
-                className="btn btn-ghost"
-                href={profile.githubProfileUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </a>
+        <div className="container">
+          <Reveal>
+            <div className="contact-panel">
+              <div className="contact-intro">
+                <p className="eyebrow">
+                  <span className="eyebrow-rule" aria-hidden="true" />
+                  Contact
+                </p>
+                <h2>Let&apos;s build better project decisions.</h2>
+                <p>
+                  Open to construction project and program management, project controls,
+                  construction analytics, and consulting work.
+                </p>
+                <ul className="contact-facts">
+                  <li>
+                    <span>Based in</span>
+                    {profile.location}
+                  </li>
+                  <li>
+                    <span>Open to</span>
+                    Utah-based and remote
+                  </li>
+                  <li>
+                    <span>Languages</span>
+                    {profile.languages.join(" and ")}
+                  </li>
+                </ul>
+              </div>
+
+              <div className="contact-channels">
+                <div className="contact-channel">
+                  <p className="contact-channel-label">Email</p>
+                  <a className="contact-channel-value" href={`mailto:${profile.publicEmail}`}>
+                    {profile.publicEmail}
+                  </a>
+                  <div className="action-row">
+                    <a className="btn btn-primary" href={`mailto:${profile.publicEmail}`}>
+                      Email Narciso
+                    </a>
+                    <CopyEmail email={profile.publicEmail} />
+                  </div>
+                </div>
+
+                <div className="contact-channel">
+                  <p className="contact-channel-label">Elsewhere</p>
+                  <a
+                    className="contact-link"
+                    href={profile.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    LinkedIn <small>in/narcisodickson</small>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    className="contact-link"
+                    href={profile.githubProfileUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub <small>ND3404</small>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                  <a className="contact-link" href={profile.resumeUrl} target="_blank" rel="noopener noreferrer">
+                    Résumé <small>One page, {profile.resumeFormat}</small>
+                    <span aria-hidden="true">↓</span>
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>

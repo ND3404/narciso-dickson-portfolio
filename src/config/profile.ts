@@ -68,6 +68,17 @@ export const profile = {
 /** A value that has not been supplied yet, so the UI can degrade gracefully. */
 export const isPending = (value: string) => value.startsWith("TODO_");
 
+/**
+ * The four areas, stated identically in every hero. Previously each page phrased
+ * them differently and Responsible AI was missing from the home page entirely.
+ */
+export const focusAreas = [
+  "Construction Project Leadership",
+  "Project Controls",
+  "Data Analytics",
+  "Responsible AI",
+] as const;
+
 // ---------------------------------------------------------------- positioning
 
 /** Short form for the home page. */

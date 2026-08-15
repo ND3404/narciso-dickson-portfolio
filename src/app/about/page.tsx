@@ -24,15 +24,17 @@ export const metadata = pageMetadata({
 export default function AboutPage() {
   return (
     <>
-      <PageHero eyebrow="About and Résumé" title="Narciso M. Dickson" variant="compact">
-        <p>Construction Project / Program Management</p>
-        <p className="hero-subline">
-          Project Controls · Construction Data Analytics · Responsible AI
-        </p>
-      </PageHero>
+      {/* The two sublines here said the same thing twice, in two different
+          styles. The shared focus-area list now carries it. */}
+      <PageHero
+        eyebrow="About and Résumé"
+        title="Narciso M. Dickson"
+        variant="compact"
+      />
 
-      {/* Who, in plain language, next to the photograph. */}
-      <section className="section">
+      {/* Who, in plain language, next to the photograph. Tightened so the
+          portrait sits in the first screen instead of below the fold. */}
+      <section className="section section-tight">
         <div className="container">
           <div className="about-split">
             <Image
