@@ -608,7 +608,9 @@ main:focus { outline: none; }
   line-height: 1;
 }
 
-.hero-stat span {
+/* Direct child only. CountUp renders its own spans inside the <strong>, and an
+   unscoped `.hero-stat span` shrank the figure to label size. */
+.hero-stat > span {
   display: block;
   margin-top: 8px;
   color: var(--muted);
