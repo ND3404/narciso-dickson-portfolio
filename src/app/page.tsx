@@ -161,7 +161,10 @@ export default function Home() {
         <div className="container">
           <div className="section-heading">
             <p className="eyebrow">About</p>
-            <h2>Construction delivery first, analytics second.</h2>
+            {/* Was "Construction delivery first, analytics second." — "second"
+                read as though analytics mattered less, which is the opposite of
+                the point. The advantage is the order they were learned in. */}
+            <h2>I ran the projects before I measured them.</h2>
           </div>
           <div className="about-split">
             <Image
