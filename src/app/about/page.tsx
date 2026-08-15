@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ActionLink } from "@/components/Actions";
-import { CopyEmail } from "@/components/CopyEmail";
+import { ContactPanel } from "@/components/ContactPanel";
 import { PageHero } from "@/components/PageHero";
 import {
   profile,
@@ -190,9 +190,12 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Source order is Education → Certifications → Languages, which is how it
+          stacks on a phone. Grid placement puts Languages back under Education
+          on wide screens, so Languages never splits the two credential lists. */}
       <section className="section section-white">
-        <div className="container stack-grid stack-grid-2">
-          <div>
+        <div className="container about-credentials">
+          <div className="cred-education">
             <h2>Education</h2>
             <ul className="cert-list plain-list">
               {education.map((item) => (
@@ -204,12 +207,8 @@ export default function AboutPage() {
                 </li>
               ))}
             </ul>
-            <h2 style={{ marginTop: "28px" }}>Languages</h2>
-            <p className="sidebar-note">
-              {profile.languages.join(" and ")}, professional working proficiency.
-            </p>
           </div>
-          <div>
+          <div className="cred-certifications">
             <h2>Certifications</h2>
             <ul className="cert-list plain-list">
               {certifications.map((item) => (
@@ -220,35 +219,18 @@ export default function AboutPage() {
               ))}
             </ul>
           </div>
+          <div className="cred-languages">
+            <h2>Languages</h2>
+            <p className="sidebar-note">
+              {profile.languages.join(" and ")}, professional working proficiency.
+            </p>
+          </div>
         </div>
       </section>
 
       <section className="section" id="contact">
-        <div className="container narrow">
-          <div className="contact-card-compact">
-            <p className="eyebrow">Contact</p>
-            <h2>Open to roles and consulting work.</h2>
-            <p>
-              Construction project and program management, project controls, construction
-              analytics, and consulting. Based in Lehi, Utah; open to Utah-based and
-              remote work.
-            </p>
-            <p className="contact-email">
-              <a href={`mailto:${profile.publicEmail}`}>{profile.publicEmail}</a>
-            </p>
-            <div className="action-row">
-              <a className="btn btn-primary" href={`mailto:${profile.publicEmail}`}>
-                Email Narciso
-              </a>
-              <CopyEmail email={profile.publicEmail} />
-              <a className="btn btn-ghost" href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">
-                LinkedIn
-              </a>
-              <a className="btn btn-ghost" href={profile.githubProfileUrl} target="_blank" rel="noopener noreferrer">
-                GitHub
-              </a>
-            </div>
-          </div>
+        <div className="container">
+          <ContactPanel heading="Open to roles and consulting work." />
         </div>
       </section>
     </>
